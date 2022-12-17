@@ -13,7 +13,6 @@ ${reset}
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "GmarketSans";
   font-weight: 500;
 }
 html,
@@ -25,9 +24,6 @@ body {
 }
 
 body{
-  background-color: ${({ theme }: { theme: themeType }) =>
-    theme.bgColor} !important;
-  color: ${({ theme }: { theme: themeType }) => theme.textColor} !important;
 }
 
 a {

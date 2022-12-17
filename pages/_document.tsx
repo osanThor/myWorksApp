@@ -38,6 +38,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <meta charSet="utf-8" />
+          <title>안녕하세요</title>
         </Head>
         <body>
           <Main />
