@@ -38,22 +38,18 @@ const Change = keyframes`
 
 const MainTxtBlock = styled.div`
   width: 100%;
-  height: 150px;
+  height: 110px;
   color: ${colors.blue};
   position: relative;
-  margin-bottom: 2rem;
   &::before {
     content: '<h1>';
     top: 0;
+    left: 0;
   }
-  &::after {
-    content: '</h1>';
-    bottom: 0;
-  }
+
   &:after,
   &:before {
     position: absolute;
-    left: 0;
     font-size: 1.7rem;
     font-family: 'Caramel';
   }
@@ -63,14 +59,23 @@ const MainTxtBlock = styled.div`
     top: 50%;
     left: 2rem;
     transform: translateY(-50%);
-    font-size: 5rem;
-    line-height: 5rem;
+    font-size: 3.1rem;
+    line-height: 3.1rem;
     color: ${colors.cyan};
-
+    &::after {
+      content: '<br />';
+      bottom: 0;
+      position: absolute;
+      font-size: 1.7rem;
+      font-family: 'Caramel';
+      color: ${colors.blue};
+      right: 0;
+      transform: translate(120%, 15%);
+    }
     .container {
       font-weight: 800;
       overflow: hidden;
-      height: 5rem;
+      height: 3.1rem;
       padding: 0 40px;
 
       &:before {
@@ -91,8 +96,8 @@ const MainTxtBlock = styled.div`
         transform: translateY(-50%);
 
         color: ${colors.blue};
-        font-size: 3rem;
-        line-height: 4rem;
+        font-size: 2.1rem;
+        line-height: 3.1rem;
 
         -webkit-animation-name: ${Opacity};
         -webkit-animation-duration: 2s;
@@ -111,7 +116,7 @@ const MainTxtBlock = styled.div`
 
       .list {
         margin-top: 0;
-        padding-left: 250px;
+        padding-left: 160px;
         text-align: left;
         list-style: none;
 
@@ -123,7 +128,7 @@ const MainTxtBlock = styled.div`
         animation-iteration-count: infinite;
 
         .item {
-          line-height: 5rem;
+          line-height: 3.1rem;
           white-space: nowrap;
           margin: 0;
           transition: all 0.2s;
@@ -133,20 +138,23 @@ const MainTxtBlock = styled.div`
   }
 
   ${media.tablet} {
+    &::after {
+      content: '<br />';
+      bottom: 0;
+      left: 0;
+    }
     .content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      left: 1rem;
       font-size: 2.5rem;
       line-height: 2.5rem;
       color: ${colors.cyan};
-
+      &::after {
+        display: none;
+      }
       .container {
         overflow: hidden;
         height: 2.5rem;
-        padding: 0 40px;
-
+        padding: 0 20px;
         &:before {
           content: '[';
           left: 0;
@@ -170,6 +178,47 @@ const MainTxtBlock = styled.div`
 
           .item {
             line-height: 2.5rem;
+          }
+        }
+      }
+    }
+  }
+  ${media.custom(400)} {
+    .content {
+      left: 1rem;
+      font-size: 1.75rem;
+      line-height: 1.75rem;
+      color: ${colors.cyan};
+      &::after {
+        display: none;
+      }
+      .container {
+        overflow: hidden;
+        height: 1.75rem;
+        padding: 0 20px;
+        &:before {
+          content: '[';
+          left: 0;
+        }
+
+        &:after {
+          content: ']';
+          position: absolute;
+          right: 0;
+        }
+
+        &:after,
+        &:before {
+          font-size: 2rem;
+          line-height: 4rem;
+        }
+
+        .list {
+          margin-top: 0;
+          padding-left: 70px;
+
+          .item {
+            line-height: 1.75rem;
           }
         }
       }

@@ -44,7 +44,7 @@ const IntroDescriptBlock = styled.div`
   font-size: 1rem;
   align-items: center;
   position: relative;
-  padding: 2rem;
+  padding: 1.5rem 2rem;
   &::before {
     content: '<p>';
     top: 0;

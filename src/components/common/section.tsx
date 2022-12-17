@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { media } from '../../../styles/theme';
 import colors from '../../assets/colors';
 
 const Section = ({ children }: { children: React.ReactNode }) => {
@@ -32,6 +33,16 @@ const SectionBlock = styled.div`
       font-family: 'Caramel';
       font-size: 1.7rem;
       color: ${colors.blue};
+    }
+  }
+
+  ${media.tablet} {
+    padding: 1rem;
+    min-height: calc(100vh - 70px);
+    &:first-child {
+      &::after {
+        left: 1rem;
+      }
     }
   }
 `;

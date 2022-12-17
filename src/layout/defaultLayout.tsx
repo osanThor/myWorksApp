@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { media } from '../../styles/theme';
 import Container from '../components/common/container';
 import Header from '../components/common/header';
 
@@ -17,6 +18,10 @@ const DefaultLayoutBlock = styled.div`
   height: 100%;
   position: relative;
   display: flex;
+
+  ${media.tablet} {
+    flex-direction: column;
+  }
 `;
 
 export default DefaultLayout;
