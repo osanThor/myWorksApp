@@ -1,0 +1,45 @@
+@font-face {
+  font-family: 'LINESeedKR';
+  font-weight: 300;
+  font-style: normal;
+  src: url('/fonts/line/EOT/LINESeedKR-Th.eot');
+  src: url('/fonts/line/EOT/LINESeedKR-Th.eot?#iefix')
+      format('embedded-opentype'),
+    url('/fonts/line/WOFF/LINESeedKR-Th.woff') format('woff'),
+    url('/fonts/line/WOFF2/LINESeedKR-Th.woff2') format('woff2'),
+    url('/fonts/line/TTF/LINESeedKR-Th.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'LINESeedKR';
+  font-weight: 500;
+  font-style: normal;
+  src: url('/fonts/line/EOT/LINESeedKR-Rg.eot');
+  src: url('/fonts/line/EOT/LINESeedKR-Rg.eot?#iefix')
+      format('embedded-opentype'),
+    url('/fonts/line/WOFF/LINESeedKR-Rg.woff') format('woff'),
+    url('/fonts/line/WOFF2/LINESeedKR-Rg.woff2') format('woff2'),
+    url('/fonts/line/TTF/LINESeedKR-Rg.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'LINESeedKR';
+  font-weight: 800;
+  font-style: normal;
+  src: url('/fonts/line/EOT/LINESeedKR-Bd.eot');
+  src: url('/fonts/line/EOT/LINESeedKR-Bd.eot?#iefix')
+      format('embedded-opentype'),
+    url('/fonts/line/WOFF/LINESeedKR-Bd.woff') format('woff'),
+    url('/fonts/line/WOFF2/LINESeedKR-Bd.woff2') format('woff2'),
+    url('/fonts/line/TTF/LINESeedKR-Bd.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Caramel';
+  font-weight: 500;
+  font-style: normal;
+  src: url('/fonts/caramel/Caramel-Regular.ttf') format('truetype');
+}
+
+html,
+body {
+  font-family: 'LINESeedKR';
+  font-weight: 500;
+}

@@ -25,9 +25,8 @@ const buttonStyle = css`
   outline: none;
   cursor: pointer;
   transition: all 0.2s;
-  background: ${colors.gray[1]};
+  background: ${colors.gray[2]};
   &:hover {
-    background: ${colors.gray[2]};
   }
 
   ${(props: PropsType) =>
@@ -41,11 +40,8 @@ const buttonStyle = css`
   ${(props: PropsType) =>
     props.blue &&
     css`
-      background: ${colors.blue[2]};
+      background: ${colors.blue};
       color: white;
-      &:hover {
-        background: ${colors.blue[1]};
-      }
     `}
  
     &:disabled {

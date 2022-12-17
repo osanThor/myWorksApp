@@ -24,6 +24,8 @@ body {
 }
 
 body{
+  font-family: 'LINESeedKR' ;
+  background-color: #FFF8F3;
 }
 
 a {
