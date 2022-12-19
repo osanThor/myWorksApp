@@ -41,6 +41,7 @@ const MainTxtBlock = styled.div`
   height: 110px;
   color: ${colors.blue};
   position: relative;
+  z-index: 8;
   &::before {
     content: '<h1>';
     top: 0;

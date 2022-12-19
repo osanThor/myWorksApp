@@ -45,6 +45,7 @@ const IntroDescriptBlock = styled.div`
   align-items: center;
   position: relative;
   padding: 1.5rem 2rem;
+  z-index: 6;
   &::before {
     content: '<p>';
     top: 0;

@@ -7,7 +7,7 @@ const Introdeuce = () => {
   return (
     <IntrodeuceBlock>
       <svg viewBox="0 0 2000 200">
-        <text x="50%" y="50%" dy=".35em" text-anchor="middle">
+        <text x="50%" y="50%" dy=".35em" textAnchor="middle">
           My Name is GIVEN:)
         </text>
       </svg>
@@ -27,19 +27,6 @@ const Stroke = keyframes`
 		stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
 	}
   `;
-const Hover = keyframes`
-0%   {
-  fill: rgba(72,138,20,0); stroke: ${colors.blue};
-  stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
-}
-70%  {fill: rgba(72,138,20,0); stroke: ${colors.blue}; }
-80%  {fill: rgba(72,138,20,0); stroke: ${colors.blue}; stroke-width: 4; }
-100% {
-  fill: ${colors.blue}; stroke: rgba(54,95,160,0); 
-  stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
-}
-  
-`;
 
 const IntrodeuceBlock = styled.div`
   width: 100%;
@@ -49,6 +36,7 @@ const IntrodeuceBlock = styled.div`
   margin-bottom: 1rem;
   align-items: center;
   position: relative;
+  z-index: 7;
 
   svg {
     position: absolute;
@@ -64,7 +52,6 @@ const IntrodeuceBlock = styled.div`
     position: absolute;
     transform: translate(-16%, -13%);
     transition: all 0.3s ease-in-out;
-
     &:hover {
       fill: ${colors.white};
     }
