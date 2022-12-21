@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import React from 'react';
 import DefaultLayout from '../../layout/defaultLayout';
-import CareaSection from './careaSection';
+import CareerSection from './careerSection';
 import IntroSection from './introSection';
 import PortfolioSection from './portfolioSection';
 import SkillsSection from './skillsSection';
@@ -10,7 +10,7 @@ const index: NextPage = () => {
   return (
     <DefaultLayout>
       <IntroSection />
-      <CareaSection />
+      <CareerSection />
       <SkillsSection />
       <PortfolioSection />
     </DefaultLayout>

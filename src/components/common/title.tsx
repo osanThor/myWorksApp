@@ -3,15 +3,17 @@ import styled, { keyframes } from 'styled-components';
 import { media } from '../../../styles/theme';
 import colors from '../../assets/colors';
 
-const Introdeuce = () => {
+const Title = ({ title }: { title: string }) => {
   return (
-    <IntrodeuceBlock>
-      <svg viewBox="0 0 2000 200">
-        <text x="50%" y="50%" dy=".35em" textAnchor="middle">
-          My Name is GIVEN:)
-        </text>
-      </svg>
-    </IntrodeuceBlock>
+    <TitleBlock>
+      <div className="title">
+        <svg viewBox="0 0 100 100">
+          <text x="50%" y="50%" dy=".35em" textAnchor="middle">
+            {title}
+          </text>
+        </svg>
+      </div>
+    </TitleBlock>
   );
 };
 
@@ -28,38 +30,38 @@ const Stroke = keyframes`
 	}
   `;
 
-const IntrodeuceBlock = styled.div`
+const TitleBlock = styled.div`
   width: 100%;
-  min-height: 200px;
-  display: flex;
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  align-items: center;
   position: relative;
-  z-index: 7;
-
+  .title {
+    position: relative;
+    min-height: 150px;
+  }
   svg {
     position: absolute;
     width: 100%;
     height: 100%;
-  }
-  svg text {
-    animation: ${Stroke} 5s alternate;
-    stroke-width: 2;
-    stroke: ${colors.blue};
-    font-size: 140px;
-    font-weight: 800;
-    fill: ${colors.blue};
-    position: absolute;
-    transform: translate(-15%, -13%);
-    transition: all 0.3s ease-in-out;
-    &:hover {
-      fill: ${colors.white};
+    text {
+      animation: ${Stroke} 5s alternate;
+      stroke-width: 2;
+      stroke: ${colors.blue};
+      font-size: 50px;
+      font-weight: 800;
+      fill: ${colors.blue};
+      position: absolute;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        fill: ${colors.white};
+      }
     }
   }
 
+  &::before {
+    content: '<h2>';
+    top: 0;
+  }
   &::after {
-    content: '</h1>';
+    content: '</h2>';
     bottom: 0;
   }
   &:after,
@@ -72,14 +74,16 @@ const IntrodeuceBlock = styled.div`
   }
 
   ${media.tablet} {
-    min-height: 100px;
-    padding-bottom: 1rem;
-    svg text {
-      stroke-width: 4px;
-      font-size: 200px;
-      transform: translateX(0);
+    .title {
+      width: 100%;
+      min-height: 100px;
+      svg {
+        text {
+          font-size: 30px;
+        }
+      }
     }
   }
 `;
 
-export default Introdeuce;
+export default Title;
