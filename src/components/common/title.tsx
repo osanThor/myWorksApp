@@ -7,53 +7,60 @@ const Title = ({ title }: { title: string }) => {
   return (
     <TitleBlock>
       <div className="title">
-        <svg viewBox="0 0 100 100">
-          <text x="50%" y="50%" dy=".35em" textAnchor="middle">
-            {title}
-          </text>
-        </svg>
+        <span>{title}</span>
       </div>
     </TitleBlock>
   );
 };
 
-const Stroke = keyframes`
-  0%   {
-		fill: rgba(72,138,20,0); stroke: ${colors.blue};
-		stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
-	}
-	70%  {fill: rgba(72,138,20,0); stroke: ${colors.blue}; }
-	80%  {fill: rgba(72,138,20,0); stroke: ${colors.blue}; stroke-width: 4; }
-	100% {
-		fill: ${colors.blue}; stroke: rgba(54,95,160,0); 
-		stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
-	}
-  `;
+const Expand = keyframes`
+ 0% {
+    background-size: 50%;
+    background-position: 0 0;
+  }
+  20% {
+    background-size: 55%;
+    background-position: 0 1em;
+  }
+  100% {
+    background-size: 325%;
+    background-position: -10em -4em;
+  }
+`;
+
+const ExpandRev = keyframes`
+ 0%{
+                background-position: 0;
+            }
+            100%{
+
+                background-position: 400%;
+            }
+`;
 
 const TitleBlock = styled.div`
   width: 100%;
   position: relative;
+
   .title {
-    position: relative;
-    min-height: 150px;
-  }
-  svg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    text {
-      animation: ${Stroke} 5s alternate;
-      stroke-width: 2;
-      stroke: ${colors.blue};
-      font-size: 50px;
-      font-weight: 800;
-      fill: ${colors.blue};
-      position: absolute;
-      transition: all 0.3s ease-in-out;
-      &:hover {
-        fill: ${colors.white};
-      }
-    }
+    padding: 2.5rem 2rem;
+    background-size: 400%;
+    font-size: 3rem;
+    font-weight: 700;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(
+        to left,
+        ${colors.pink},
+        #ff007d,
+        #ff7328,
+        #f8b800,
+        ${colors.cyan},
+        ${colors.blue}
+      ),
+      radial-gradient(circle, #f415ce, #ff007d, #ff7328, #f8b800, #a8eb12);
+    animation: ${ExpandRev} 10s linear;
   }
 
   &::before {
@@ -75,13 +82,7 @@ const TitleBlock = styled.div`
 
   ${media.tablet} {
     .title {
-      width: 100%;
-      min-height: 100px;
-      svg {
-        text {
-          font-size: 30px;
-        }
-      }
+      padding: 2rem 1rem;
     }
   }
 `;

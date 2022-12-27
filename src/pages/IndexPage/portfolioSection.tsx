@@ -1,8 +1,13 @@
 import React from 'react';
 import Section from '../../components/common/section';
+import Title from '../../components/common/title';
 
 const PortfolioSection = () => {
-  return <Section>포트 폴리오</Section>;
+  return (
+    <Section>
+      <Title title={'PORTFOLIO'} />
+    </Section>
+  );
 };
 
 export default PortfolioSection;
