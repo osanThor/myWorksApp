@@ -16,9 +16,11 @@ const Title = ({ title }: { title: string }) => {
         if (e.isIntersecting) {
           target.style.opacity = '1';
           target.style.transform = 'translateX(0)';
+          target.classList.add('on');
         } else {
           target.style.opacity = '0';
-          target.style.transform = 'translateX(-100px)';
+          target.style.transform = 'translateX(-77px)';
+          target.classList.remove('on');
         }
       },
       { threshold: 0.5 },
@@ -41,7 +43,7 @@ const ExpandRev = keyframes`
             }
             100%{
 
-                background-position: 400%;
+                background-position: 140%;
             }
 `;
 
@@ -67,8 +69,10 @@ const TitleBlock = styled.div`
         ${colors.blue}
       ),
       radial-gradient(circle, #f415ce, #ff007d, #ff7328, #f8b800, #a8eb12);
-    animation: ${ExpandRev} 10s linear;
     transition: all 0.3s ease-in;
+    &.on {
+      animation: ${ExpandRev} 3s linear;
+    }
   }
 
   &::before {
