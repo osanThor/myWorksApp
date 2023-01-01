@@ -1,32 +1,39 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { media } from '../../../styles/theme';
 import colors from '../../assets/colors';
 
 const Title = ({ title }: { title: string }) => {
+  const targetRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const targetCurrent = targetRef.current;
+    let observer: IntersectionObserver;
+    if (!targetCurrent) return;
+    observer = new IntersectionObserver(
+      ([e]) => {
+        const target = e.target as HTMLElement;
+        if (e.isIntersecting) {
+          target.style.opacity = '1';
+          target.style.transform = 'translateX(0)';
+        } else {
+          target.style.opacity = '0';
+          target.style.transform = 'translateX(-100px)';
+        }
+      },
+      { threshold: 0.5 },
+    );
+    observer.observe(targetCurrent as Element);
+  }, [targetRef]);
+
   return (
     <TitleBlock>
-      <div className="title">
+      <div className="title" ref={targetRef}>
         <span>{title}</span>
       </div>
     </TitleBlock>
   );
 };
-
-const Expand = keyframes`
- 0% {
-    background-size: 50%;
-    background-position: 0 0;
-  }
-  20% {
-    background-size: 55%;
-    background-position: 0 1em;
-  }
-  100% {
-    background-size: 325%;
-    background-position: -10em -4em;
-  }
-`;
 
 const ExpandRev = keyframes`
  0%{
@@ -61,6 +68,7 @@ const TitleBlock = styled.div`
       ),
       radial-gradient(circle, #f415ce, #ff007d, #ff7328, #f8b800, #a8eb12);
     animation: ${ExpandRev} 10s linear;
+    transition: all 0.3s ease-in;
   }
 
   &::before {
