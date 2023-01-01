@@ -1,19 +1,32 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useRef } from 'react';
+import styled, { keyframes } from 'styled-components';
 import Image from 'next/image';
 import { Profile } from '../../assets/images';
 import colors from '../../assets/colors';
 import { media } from '../../../styles/theme';
 
 const AboutMeImage = () => {
+  const loadingRef = useRef<HTMLDivElement>(null);
   return (
     <AboutMeImageBlock>
       <div className="image_box">
-        <Image src={Profile[0]} alt="profile" width={470} height={650} />
+        <Image
+          src={Profile[0]}
+          alt="profile"
+          width={470}
+          height={650}
+          onLoadingComplete={() => loadingRef.current?.remove()}
+        />
+        <div className="loading" ref={loadingRef} />
       </div>
     </AboutMeImageBlock>
   );
 };
+
+const Rotate = keyframes`
+     from {transform: rotate(0deg)}
+  to {transform: rotate(360deg)}
+`;
 
 const AboutMeImageBlock = styled.div`
   position: relative;
@@ -62,6 +75,23 @@ const AboutMeImageBlock = styled.div`
       color: ${colors.blue};
       font-size: 2rem;
     }
+  }
+  .loading {
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    border: 4px solid ${colors.blue};
+    border-top-color: transparent;
+    border-left-color: transparent;
+
+    animation: ${Rotate} 0.8s infinite linear;
+    z-index: 100;
   }
   img {
     max-width: 100%;
