@@ -29,7 +29,7 @@ const HeaderBlock = styled.div`
   z-index: 990;
   padding: 1rem;
   box-shadow: 0 0 10px ${colors.gray[3]};
-  background-color: ${colors.white};
+  background-color: rgba(255, 248, 243, 0.7);
 
   .logo {
     width: 100%;

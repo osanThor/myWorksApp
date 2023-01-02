@@ -128,7 +128,7 @@ const MainTxtBlock = styled.div`
         animation-iteration-count: infinite;
 
         .item {
-          line-height: 3.1rem;
+          line-height: 3.2rem;
           white-space: nowrap;
           margin: 0;
           transition: all 0.2s;
