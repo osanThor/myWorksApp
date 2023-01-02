@@ -1,12 +1,17 @@
+import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
 import { media } from '../../../styles/theme';
+import colors from '../../assets/colors';
+import { Logo } from '../../assets/images';
 
 const Header = () => {
   return (
     <>
       <HeaderBlock>
-        <h1 className="logo">로고</h1>
+        <div className="logo">
+          <Image src={Logo} alt="main logo" layout="fill" />
+        </div>
       </HeaderBlock>
       <Spacer />
     </>
@@ -14,29 +19,43 @@ const Header = () => {
 };
 
 const HeaderBlock = styled.div`
-  width: 70px;
-  border: 1px solid;
+  width: 120px;
   height: 100%;
   position: fixed;
   top: 0;
   left: 0;
   display: flex;
-  align-items: center;
   justify-content: center;
+  z-index: 990;
+  padding: 1rem;
+  box-shadow: 0 0 10px ${colors.gray[3]};
+  background-color: ${colors.white};
+
+  .logo {
+    width: 100%;
+    height: 38px;
+    position: relative;
+  }
+
   ${media.tablet} {
     width: 100%;
     height: 70px;
     padding: 1rem;
     justify-content: flex-start;
+    align-items: center;
+
+    .logo {
+      width: 100px;
+    }
   }
 `;
 const Spacer = styled.div`
-  width: 70px;
+  width: 120px;
   height: 100%;
   ${media.tablet} {
     width: 100%;
     height: auto;
-    min-height: 70px;
+    min-height: 60px;
   }
 `;
 
