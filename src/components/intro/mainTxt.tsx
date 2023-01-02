@@ -60,7 +60,7 @@ const MainTxtBlock = styled.div`
     left: 2rem;
     transform: translateY(-50%);
     font-size: 3.1rem;
-    line-height: 3.1rem;
+    line-height: 3.2rem;
     color: ${colors.cyan};
     &::after {
       content: '<br />';
