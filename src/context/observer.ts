@@ -1,4 +1,6 @@
-const Observer = (targetRef: React.RefObject<HTMLDivElement>) => {
+const Observer = (
+  targetRef: React.RefObject<HTMLDivElement | HTMLLIElement>,
+) => {
   const targetCurrent = targetRef.current;
   let observer: IntersectionObserver;
   if (!targetCurrent) return;
