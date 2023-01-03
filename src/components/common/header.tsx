@@ -33,7 +33,7 @@ const HeaderBlock = styled.div`
 
   .logo {
     width: 100%;
-    height: 38px;
+    height: 32px;
     position: relative;
   }
 
