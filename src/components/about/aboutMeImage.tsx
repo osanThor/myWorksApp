@@ -104,6 +104,11 @@ const AboutMeImageBlock = styled.div`
     img {
     }
   }
+  ${media.custom(460)} {
+    img {
+      height: 400px;
+    }
+  }
 `;
 
 export default AboutMeImage;
