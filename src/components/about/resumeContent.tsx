@@ -1,43 +1,35 @@
-import React from 'react';
 import styled from 'styled-components';
 import colors from '../../assets/colors';
+import resume from '../../data/resume.json';
 
-const ResumeContent = () => {
+interface ResumeProps {
+  rs: {
+    id: number;
+    resumeEvent: string;
+    dataTime: string;
+  };
+}
+
+const ResumeContent: React.FC = () => {
   return (
     <ResumeContentBlock>
       <ul>
-        <li>
-          <div className="item">
-            수원대 미술대학 입학
-            <span className="date">2015.03</span>
-          </div>
-        </li>
-        <li>
-          <div className="item">
-            대한민국 육군 입대 및 전역
-            <span className="date">2017.03~2018.12</span>
-          </div>
-        </li>
-        <li>
-          <div className="item">
-            수원대 미술대학 졸업
-            <span className="date">2021.02</span>
-          </div>
-        </li>
-        <li>
-          <div className="item">
-            굿잡아카데미 강남점 UI/UX 수료
-            <span className="date">2021.04~2021.09</span>
-          </div>
-        </li>
-        <li>
-          <div className="item">
-            Softlabs
-            <span className="date">2021.11~</span>
-          </div>
-        </li>
+        {resume?.map((rs) => (
+          <ResumeItem key={rs.id} rs={rs} />
+        ))}
       </ul>
     </ResumeContentBlock>
+  );
+};
+
+const ResumeItem = ({ rs }: ResumeProps) => {
+  return (
+    <li>
+      <div className="item">
+        {rs.resumeEvent}
+        <span className="date">{rs.dataTime}</span>
+      </div>
+    </li>
   );
 };
 
@@ -65,6 +57,9 @@ const ResumeContentBlock = styled.div`
   ul {
     width: 100%;
     position: relative;
+    background-color: ${colors.gray[1]};
+    padding: 1rem 0;
+
     &::before {
       content: '';
       width: 1px;
@@ -76,15 +71,53 @@ const ResumeContentBlock = styled.div`
     }
     li {
       width: 100%;
-      padding: 2rem 1rem;
+      padding: 2.5rem 1rem;
       position: relative;
+      margin-bottom: 1rem;
+      &::before {
+        content: '';
+        width: 10px;
+        height: 10px;
+        border: 3px solid ${colors.blue};
+        background-color: white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+      }
       .item {
+        height: 100%;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         line-height: 1.785em;
+        position: absolute;
+        top: 0;
+        left: 1rem;
+        padding: 0 2rem;
+        background-color: ${colors.white};
+        border-radius: 7px;
         span.date {
           font-size: 0.75rem;
           color: ${colors.blue};
+        }
+        &::before {
+          content: '<li>';
+          left: 0;
+          top: 0;
+        }
+        &::after {
+          content: '</li>';
+          right: 0;
+          bottom: 0;
+        }
+        &:after,
+        &:before {
+          position: absolute;
+          color: ${colors.blue};
+          font-size: 1.25rem;
+          font-family: 'Caramel';
         }
       }
     }

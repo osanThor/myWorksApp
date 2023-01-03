@@ -1,0 +1,15 @@
+[
+  { "id": 1, "resumeEvent": "수원대 미술대학 입학", "dataTime": "2015.03" },
+  {
+    "id": 2,
+    "resumeEvent": "대한민국 육군 입대 및 전역",
+    "dataTime": "2017.03~2018.12"
+  },
+  { "id": 3, "resumeEvent": "수원대 미술대학 졸업", "dataTime": "2021.02" },
+  {
+    "id": 4,
+    "resumeEvent": "굿잡아카데미 강남점 UI/UX 수료",
+    "dataTime": "2021.04~2021.09"
+  },
+  { "id": 5, "resumeEvent": "Softlabs 입사", "dataTime": "2021.11~" }
+]
