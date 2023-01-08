@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import colors from '../../assets/colors';
-import Observer from '../../context/observer';
+import Observer from '../../utils/observer';
 import resume from '../../data/resume.json';
 
 interface ResumeProps {

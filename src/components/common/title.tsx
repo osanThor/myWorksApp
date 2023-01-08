@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { media } from '../../../styles/theme';
 import colors from '../../assets/colors';
-import Observer from '../../context/observer';
+import Observer from '../../utils/observer';
 
 const Title = ({ title }: { title: string }) => {
   const targetRef = useRef<HTMLDivElement>(null);
