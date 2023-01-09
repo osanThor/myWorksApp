@@ -4,6 +4,7 @@ import { Logo } from '../../assets/images';
 import * as THREE from 'three';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
@@ -42,7 +43,24 @@ const SkillsLayout = () => {
             <img src={Logo.src} className="intro-graphic" />
             <div className="intro-text">
               <h2 className="blue">FE</h2>
-              <h1>TypeScript</h1>
+              <h1>
+                <span className="blue">Type</span>Script
+              </h1>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="intro-cell">
+            <img src={Logo.src} className="intro-graphic" />
+            <div className="intro-text">
+              <h2 className="blue">FE</h2>
+              <h1>
+                <span className="cyan">React</span> &amp; Next
+              </h1>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -57,6 +75,36 @@ const SkillsLayout = () => {
               <h2 className="red">Style</h2>
               <h1>
                 Sass<span className="pink">(Scss)</span>
+              </h1>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="intro-cell">
+            <img src={Logo.src} className="intro-graphic" />
+            <div className="intro-text">
+              <h2 className="red">Style</h2>
+              <h1>
+                <span className="pink">Styled</span> Component
+              </h1>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="intro-cell">
+            <img src={Logo.src} className="intro-graphic" />
+            <div className="intro-text">
+              <h2 className="green">BE</h2>
+              <h1>
+                <span className="red">Fire</span>base
               </h1>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
