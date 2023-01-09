@@ -8,12 +8,6 @@ import { OrbitControls } from '@react-three/drei';
 const SkillsLayout = () => {
   return (
     <SkillsLayoutBlock>
-      <Canvas>
-        <mesh>
-          <sphereBufferGeometry />
-          <meshStandardMaterial color="hotpink" />
-        </mesh>
-      </Canvas>
       <main role="main" id="main">
         <div className="feature">
           <div className="intro-carousel">
