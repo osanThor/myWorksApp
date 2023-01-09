@@ -110,50 +110,50 @@ const ParticleSilder = () => {
   // Setup particles
   // -----------------------
 
-  function Particle(this: any) {
-    this.vx = Math.random() * 0.05;
-    this.vy = Math.random() * 0.05;
-  }
+  //   function Particle(this: any) {
+  //     this.vx = Math.random() * 0.05;
+  //     this.vy = Math.random() * 0.05;
+  //   }
 
-  Particle.prototype.init = function (i: number) {
-    const particle = new THREE.Object3D();
-    const geometryCore = new THREE.SphereGeometry(2, 4, 4);
-    const materialCore = new THREE.MeshBasicMaterial({
-      color: colors[i % colors.length],
-    });
+  //   Particle.prototype.init = function (i: number) {
+  //     const particle = new THREE.Object3D();
+  //     const geometryCore = new THREE.SphereGeometry(2, 4, 4);
+  //     const materialCore = new THREE.MeshBasicMaterial({
+  //       color: colors[i % colors.length],
+  //     });
 
-    const box = new THREE.Mesh(geometryCore, materialCore);
-    box.geometry.__dirtyVertices = true;
-    box.geometry.dynamic = true;
+  //     const box = new THREE.Mesh(geometryCore, materialCore);
+  //     box.geometry.__dirtyVertices = true;
+  //     box.geometry.dynamic = true;
 
-    const pos = getGraphicPos(graphicPixels[i]);
-    particle.targetPosition = new THREE.Vector3(pos.x, pos.y, pos.z);
+  //     const pos = getGraphicPos(graphicPixels[i]);
+  //     particle.targetPosition = new THREE.Vector3(pos.x, pos.y, pos.z);
 
-    particle.position.set(
-      windowWidth * 0.5,
-      windowHeight * 0.5,
-      -10 * Math.random() + 20,
-    );
-    randomPos(particle.position);
+  //     particle.position.set(
+  //       windowWidth * 0.5,
+  //       windowHeight * 0.5,
+  //       -10 * Math.random() + 20,
+  //     );
+  //     randomPos(particle.position);
 
-    for (var i = 0; i < box.geometry.vertices.length; i++) {
-      box.geometry.vertices[i].x += -2 + Math.random() * 4;
-      box.geometry.vertices[i].y += -2 + Math.random() * 4;
-      box.geometry.vertices[i].z += -2 + Math.random() * 4;
-    }
+  //     for (var i = 0; i < box.geometry.vertices.length; i++) {
+  //       box.geometry.vertices[i].x += -2 + Math.random() * 4;
+  //       box.geometry.vertices[i].y += -2 + Math.random() * 4;
+  //       box.geometry.vertices[i].z += -2 + Math.random() * 4;
+  //     }
 
-    particle.add(box);
-    this.particle = particle;
-  };
+  //     particle.add(box);
+  //     this.particle = particle;
+  //   };
 
-  Particle.prototype.updateRotation = function () {
-    this.particle.rotation.x += this.vx;
-    this.particle.rotation.y += this.vy;
-  };
+  //   Particle.prototype.updateRotation = function () {
+  //     this.particle.rotation.x += this.vx;
+  //     this.particle.rotation.y += this.vy;
+  //   };
 
-  Particle.prototype.updatePosition = function () {
-    this.particle.position.lerp(this.particle.targetPosition, 0.1);
-  };
+  //   Particle.prototype.updatePosition = function () {
+  //     this.particle.position.lerp(this.particle.targetPosition, 0.1);
+  //   };
 
   function updateParticles() {
     for (var i = 0, l = particles.length; i < l; i++) {
@@ -170,27 +170,27 @@ const ParticleSilder = () => {
     return { x: posX, y: posY, z: posZ };
   };
 
-  const setParticles = () => {
-    for (let i = 0; i < graphicPixels.length; i++) {
-      if (particles[i]) {
-        const pos = getGraphicPos(graphicPixels[i]);
-        particles[i].particle.targetPosition.x = pos.x;
-        particles[i].particle.targetPosition.y = pos.y;
-        particles[i].particle.targetPosition.z = pos.z;
-      } else {
-        const p = new Particle();
-        p.init(i);
-        scene.add(p.particle);
-        particles[i] = p;
-      }
-    }
+  //   const setParticles = () => {
+  //     for (let i = 0; i < graphicPixels.length; i++) {
+  //       if (particles[i]) {
+  //         const pos = getGraphicPos(graphicPixels[i]);
+  //         particles[i].particle.targetPosition.x = pos.x;
+  //         particles[i].particle.targetPosition.y = pos.y;
+  //         particles[i].particle.targetPosition.z = pos.z;
+  //       } else {
+  //         const p = new Particle();
+  //         p.init(i);
+  //         scene.add(p.particle);
+  //         particles[i] = p;
+  //       }
+  //     }
 
-    for (let i: number = graphicPixels.length; i < particles.length; i++) {
-      randomPos(particles[i].particle.targetPosition, true);
-    }
+  //     for (let i: number = graphicPixels.length; i < particles.length; i++) {
+  //       randomPos(particles[i].particle.targetPosition, true);
+  //     }
 
-    console.log('Total Particles: ' + particles.length);
-  };
+  //     console.log('Total Particles: ' + particles.length);
+  //   };
 
   // -----------------------
   // Random position
@@ -241,7 +241,7 @@ const ParticleSilder = () => {
     }
 
     setTimeout(() => {
-      setParticles();
+      //   setParticles();
     }, 500);
   };
 
@@ -270,25 +270,25 @@ const ParticleSilder = () => {
   // Setup slider
   // -----------------------
 
-  const initSlider = () => {
-    const elem = document.querySelector('.intro-carousel');
+  //   const initSlider = () => {
+  //     const elem = document.querySelector('.intro-carousel');
 
-    const flkty = new Flickity(elem, {
-      // options
-      cellAlign: 'center',
-      pageDots: false,
-      wrapAround: true,
-      resize: true,
-    });
+  //     const flkty = new Flickity(elem, {
+  //       // options
+  //       cellAlign: 'center',
+  //       pageDots: false,
+  //       wrapAround: true,
+  //       resize: true,
+  //     });
 
-    function listener() {
-      currentGraphic = flkty.selectedIndex;
-      updateGraphic();
-      console.log(flkty.selectedIndex);
-    }
+  //     function listener() {
+  //       currentGraphic = flkty.selectedIndex;
+  //       updateGraphic();
+  //       console.log(flkty.selectedIndex);
+  //     }
 
-    flkty.on('select', listener);
-  };
+  //     flkty.on('select', listener);
+  //   };
 
   const onMouseMove = (event: { clientX: number; clientY: number }) => {
     mouseX = event.clientX - windowHalfWidth;
@@ -327,7 +327,7 @@ const ParticleSilder = () => {
   initScene();
   initCanvas();
   initCamera();
-  initSlider();
+  //   initSlider();
   initBgObjects();
   updateGraphic();
   animate();
