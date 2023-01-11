@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "logoNum": 0,
+    "logoColor": "#e9cc06",
+    "skillCategory": "FE",
+    "skillTitle": "<span class=\"yellow\">Java</span>Script",
+    "skillDes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "id": 2,
+    "logoNum": 1,
+    "logoColor": "#0274c2",
+    "skillCategory": "FE",
+    "skillTitle": "<span class=\"blue\">Type</span>Script",
+    "skillDes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "id": 3,
+    "logoNum": 2,
+    "logoColor": "#61dafb",
+    "skillCategory": "FE",
+    "skillTitle": "<span class=\"cyan\">React</span> &amp; Next",
+    "skillDes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "id": 4,
+    "logoNum": 3,
+    "logoColor": "#c26291",
+    "skillCategory": "STYLE",
+    "skillTitle": "Sass<span class=\"pink\">(Scss)</span>",
+    "skillDes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "id": 5,
+    "logoNum": 4,
+    "logoColor": "#d48278",
+    "skillCategory": "STYLE",
+    "skillTitle": "<span class=\"pink\">Styled</span> Component",
+    "skillDes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "id": 6,
+    "logoNum": 5,
+    "logoColor": "#f3c12a",
+    "skillCategory": "BE",
+    "skillTitle": "<span class=\"red\">Fire</span>base",
+    "skillDes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  }
+]

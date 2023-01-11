@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import colors from '../../assets/colors';
 import Observer from '../../utils/observer';
@@ -26,11 +26,13 @@ const ResumeContent: React.FC = () => {
 
 const ResumeItem = ({ rs }: ResumeProps) => {
   const targetRef = useRef<HTMLLIElement>(null);
+  const [visible, setVisible] = useState<boolean>(false);
   useEffect(() => {
-    Observer(targetRef);
+    Observer(targetRef, setVisible);
   }, [targetRef]);
+
   return (
-    <li ref={targetRef}>
+    <li className={visible ? 'on' : ''} ref={targetRef}>
       <div className="item">
         {rs.resumeEvent}
         <span className="date">{rs.dataTime}</span>
@@ -81,6 +83,12 @@ const ResumeContentBlock = styled.div`
       position: relative;
       margin-bottom: 1rem;
       transition: all 0.3s;
+      opacity: 0;
+      transform: translateX(-77px);
+      &.on {
+        opacity: 1;
+        transform: translateX(0);
+      }
 
       &::before {
         content: '';
