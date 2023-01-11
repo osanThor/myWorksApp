@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { media } from '../../../styles/theme';
 import colors from '../../assets/colors';
@@ -6,14 +6,15 @@ import Observer from '../../utils/observer';
 
 const Title = ({ title }: { title: string }) => {
   const targetRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState<boolean>(false);
 
   useEffect(() => {
-    Observer(targetRef);
+    Observer(targetRef, setVisible);
   }, [targetRef]);
 
   return (
     <TitleBlock>
-      <div className="title" ref={targetRef}>
+      <div className={visible ? 'title on' : 'title'} ref={targetRef}>
         <span>{title}</span>
       </div>
     </TitleBlock>
@@ -53,7 +54,11 @@ const TitleBlock = styled.div`
       ),
       radial-gradient(circle, #f415ce, #ff007d, #ff7328, #f8b800, #a8eb12);
     transition: all 0.3s ease-in;
+    opacity: 0;
+    transform: translateX(-77px);
     &.on {
+      opacity: 1;
+      transform: translateX(0);
       animation: ${ExpandRev} 3s linear;
     }
   }
