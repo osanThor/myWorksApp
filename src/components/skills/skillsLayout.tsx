@@ -1,9 +1,15 @@
 import React, { useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { Logo } from '../../assets/images';
+import { Logo, Skill } from '../../assets/images';
 import * as THREE from 'three';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
+import ParticleImage, {
+  ParticleOptions,
+  Vector,
+  forces,
+  ParticleForce,
+} from 'react-particle-image';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -13,6 +19,25 @@ import { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import colors from '../../assets/colors';
+
+const particleOptions: ParticleOptions = {
+  filter: ({ x, y, image }) => {
+    // Get pixel
+    const pixel = image.get(x, y);
+    // Make a particle for this pixel if blue > 50 (range 0-255)
+    return pixel.b > 50;
+  },
+  color: ({ x, y, image }) => '#61dafb',
+  radius: () => Math.random() * 1.5 + 0.5,
+  mass: () => 40,
+  friction: () => 0.15,
+  initialPosition: ({ canvasDimensions }) => {
+    return new Vector(canvasDimensions.width / 2, canvasDimensions.height / 2);
+  },
+};
+const motionForce = (x: number, y: number): ParticleForce => {
+  return forces.disturbance(x, y, 10);
+};
 
 const SkillsLayout = () => {
   return (
@@ -25,7 +50,18 @@ const SkillsLayout = () => {
       >
         <SwiperSlide>
           <div className="intro-cell">
-            <img src={Logo.src} className="intro-graphic" />
+            <ParticleImage
+              src={Skill.src}
+              width={300}
+              height={300}
+              scale={0.5}
+              entropy={10}
+              maxParticles={4000}
+              particleOptions={particleOptions}
+              mouseMoveForce={motionForce}
+              touchMoveForce={motionForce}
+              backgroundColor={colors.white}
+            />
             <div className="intro-text">
               <h2 className="blue">FE</h2>
               <h1>
