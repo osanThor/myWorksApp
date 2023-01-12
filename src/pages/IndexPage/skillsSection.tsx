@@ -1,13 +1,13 @@
 import React from 'react';
 import Section from '../../components/common/section';
 import Title from '../../components/common/title';
-import SkillsLayout from '../../components/skills/skillsLayout';
+import SkillsSlider from '../../components/skills/skillsSlider';
 
 const SkillsSection = () => {
   return (
     <Section>
       <Title title={'SKILLS'} />
-      <SkillsLayout />
+      <SkillsSlider />
     </Section>
   );
 };
