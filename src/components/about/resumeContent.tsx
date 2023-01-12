@@ -65,14 +65,16 @@ const ResumeContentBlock = styled.div`
   ul {
     width: 100%;
     position: relative;
-    background-color: ${colors.gray[1]};
+    /* background-color: ${colors.gray[1]}; */
+    background-color: ${colors.cyan};
+    border-radius: 0 7px 7px 0;
     padding: 1rem 0;
 
     &::before {
       content: '';
       width: 1px;
       height: 100%;
-      background-color: ${colors.cyan};
+      background-color: ${colors.pink};
       position: absolute;
       top: 0;
       left: 0;
@@ -120,12 +122,12 @@ const ResumeContentBlock = styled.div`
         }
         &::before {
           content: '<li>';
-          left: 0;
+          left: 3px;
           top: 0;
         }
         &::after {
           content: '</li>';
-          right: 0;
+          right: 5px;
           bottom: 0;
         }
         &:after,
