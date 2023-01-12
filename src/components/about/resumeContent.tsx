@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import colors from '../../assets/colors';
 import Observer from '../../utils/observer';
 import resume from '../../data/resume.json';
+import { media } from '../../../styles/theme';
 
 interface ResumeProps {
   rs: {
@@ -73,7 +74,7 @@ const ResumeContentBlock = styled.div`
       content: '';
       width: 1px;
       height: 100%;
-      background-color: ${colors.pink};
+      background-color: ${colors.blue[0]};
       position: absolute;
       top: 0;
       left: 0;
@@ -150,6 +151,9 @@ const ResumeContentBlock = styled.div`
         }
       }
     }
+  }
+  ${media.tablet} {
+    margin: 2rem 0;
   }
 `;
 

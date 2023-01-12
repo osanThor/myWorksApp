@@ -13,6 +13,7 @@ const FlexBlock = styled.div`
   align-items: center;
 
   ${media.tablet} {
+    align-items: flex-start;
     flex-direction: column;
   }
 `;

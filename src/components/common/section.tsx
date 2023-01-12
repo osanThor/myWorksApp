@@ -37,7 +37,7 @@ const SectionBlock = styled.div`
   }
 
   ${media.tablet} {
-    padding: 1rem;
+    padding: 2.5rem 1rem;
     min-height: calc(100vh - 70px);
     &:first-child {
       &::after {

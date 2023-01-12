@@ -95,7 +95,7 @@ const MainTxtBlock = styled.div`
         top: 50%;
         transform: translateY(-50%);
 
-        color: ${colors.blue[1]};
+        color: ${colors.blue[0]};
         font-size: 2.1rem;
         line-height: 3.1rem;
 
