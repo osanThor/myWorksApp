@@ -50,7 +50,7 @@ const AboutDescritionBlock = styled.div`
   &:before {
     position: absolute;
     left: 0;
-    color: ${colors.blue};
+    color: ${colors.blue[1]};
     font-size: 1.7rem;
     font-family: 'Caramel';
   }

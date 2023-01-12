@@ -1,6 +1,6 @@
 const colors = {
   pastel: ['#F6A9A9', '#FFBF86', '#FFF47D', '#C2F784'],
-  blue: '#1C6DD0',
+  blue: ['#2192FF', '#1C6DD0'],
   white: '#FFF8F3',
   cyan: '#A3E4DB',
   pink: '#FED1EF',

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import colors from '../../assets/colors';
 import Observer from '../../utils/observer';
 import resume from '../../data/resume.json';
+import { media } from '../../../styles/theme';
 
 interface ResumeProps {
   rs: {
@@ -58,7 +59,7 @@ const ResumeContentBlock = styled.div`
   &:before {
     position: absolute;
     left: 0;
-    color: ${colors.blue};
+    color: ${colors.blue[1]};
     font-size: 1.7rem;
     font-family: 'Caramel';
   }
@@ -66,13 +67,14 @@ const ResumeContentBlock = styled.div`
     width: 100%;
     position: relative;
     background-color: ${colors.gray[1]};
+    border-radius: 0 7px 7px 0;
     padding: 1rem 0;
 
     &::before {
       content: '';
       width: 1px;
       height: 100%;
-      background-color: ${colors.cyan};
+      background-color: ${colors.blue[0]};
       position: absolute;
       top: 0;
       left: 0;
@@ -94,7 +96,7 @@ const ResumeContentBlock = styled.div`
         content: '';
         width: 10px;
         height: 10px;
-        border: 3px solid ${colors.blue};
+        border: 3px solid ${colors.blue[1]};
         background-color: white;
         position: absolute;
         top: 0;
@@ -114,29 +116,44 @@ const ResumeContentBlock = styled.div`
         padding: 0 2rem;
         background-color: ${colors.white};
         border-radius: 7px;
+        transition: all 0.5s;
+        &:hover {
+          background-color: ${colors.cyan};
+          color: ${colors.blue[1]};
+          span.date {
+            color: white;
+          }
+          &:after,
+          &:before {
+            color: white;
+          }
+        }
         span.date {
           font-size: 0.75rem;
-          color: ${colors.blue};
+          color: ${colors.blue[1]};
         }
         &::before {
           content: '<li>';
-          left: 0;
+          left: 3px;
           top: 0;
         }
         &::after {
           content: '</li>';
-          right: 0;
+          right: 5px;
           bottom: 0;
         }
         &:after,
         &:before {
           position: absolute;
-          color: ${colors.blue};
+          color: ${colors.blue[1]};
           font-size: 1.25rem;
           font-family: 'Caramel';
         }
       }
     }
+  }
+  ${media.tablet} {
+    margin: 2rem 0;
   }
 `;
 

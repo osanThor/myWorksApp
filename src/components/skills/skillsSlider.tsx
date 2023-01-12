@@ -8,12 +8,8 @@ import ParticleImage, {
   ParticleForce,
 } from 'react-particle-image';
 import sliderSkills from '../../data/sliderSkill.json';
-
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import colors from '../../assets/colors';
@@ -34,9 +30,9 @@ const motionForce = (x: number, y: number): ParticleForce => {
   return forces.disturbance(x, y, 10);
 };
 
-const SkillsLayout = () => {
+const SkillsSlider = () => {
   return (
-    <SkillsLayoutBlock>
+    <SkillsSliderBlock>
       <Swiper
         navigation={true}
         loop={true}
@@ -49,7 +45,7 @@ const SkillsLayout = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </SkillsLayoutBlock>
+    </SkillsSliderBlock>
   );
 };
 
@@ -63,9 +59,7 @@ const SkillSliderItem = ({ skill }: SkillProps) => {
 
   const particleOptions: ParticleOptions = {
     filter: ({ x, y, image }) => {
-      // Get pixel
       const pixel = image.get(x, y);
-      // Make a particle for this pixel if blue > 50 (range 0-255)
       return pixel.b > 50;
     },
     color: ({ x, y, image }) => skill.logoColor,
@@ -118,13 +112,12 @@ const SkillSliderItem = ({ skill }: SkillProps) => {
       <div className="intro-text">
         <h2 className={cateColor}>{skill.skillCategory}</h2>
         <h1 ref={skillTitleRef} />
-        <p>{skill.skillDes}</p>
       </div>
     </div>
   );
 };
 
-const SkillsLayoutBlock = styled.div`
+const SkillsSliderBlock = styled.div`
   width: 100%;
   min-height: 430px;
   display: flex;
@@ -152,7 +145,7 @@ const SkillsLayoutBlock = styled.div`
       color: ${colors.cyan};
     }
     .blue {
-      color: ${colors.blue};
+      color: ${colors.blue[1]};
     }
     .yellow {
       color: ${colors.pastel[1]};
@@ -191,4 +184,4 @@ const SkillsLayoutBlock = styled.div`
   }
 `;
 
-export default SkillsLayout;
+export default SkillsSlider;

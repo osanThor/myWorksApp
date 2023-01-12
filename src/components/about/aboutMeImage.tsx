@@ -51,7 +51,7 @@ const AboutMeImageBlock = styled.div`
   &:after,
   &:before {
     position: absolute;
-    color: ${colors.blue};
+    color: ${colors.blue[1]};
     font-size: 1.7rem;
     font-family: 'Caramel';
   }
@@ -72,7 +72,7 @@ const AboutMeImageBlock = styled.div`
     &:after,
     &:before {
       position: absolute;
-      color: ${colors.blue};
+      color: ${colors.blue[1]};
       font-size: 2rem;
     }
   }
@@ -86,7 +86,7 @@ const AboutMeImageBlock = styled.div`
 
     border-radius: 50%;
 
-    border: 4px solid ${colors.blue};
+    border: 4px solid ${colors.blue[0]};
     border-top-color: transparent;
     border-left-color: transparent;
 
@@ -100,7 +100,7 @@ const AboutMeImageBlock = styled.div`
 
   ${media.tablet} {
     width: 100%;
-    margin: 1rem 0;
+    margin: 2rem 0;
     img {
     }
   }

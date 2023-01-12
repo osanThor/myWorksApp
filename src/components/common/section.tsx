@@ -32,12 +32,12 @@ const SectionBlock = styled.div`
       position: absolute;
       font-family: 'Caramel';
       font-size: 1.7rem;
-      color: ${colors.blue};
+      color: ${colors.blue[1]};
     }
   }
 
   ${media.tablet} {
-    padding: 1rem;
+    padding: 2.5rem 1rem;
     min-height: calc(100vh - 70px);
     &:first-child {
       &::after {
