@@ -40,7 +40,7 @@ const buttonStyle = css`
   ${(props: PropsType) =>
     props.blue &&
     css`
-      background: ${colors.blue};
+      background: ${colors.blue[0]};
       color: white;
     `}
  

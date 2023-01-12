@@ -39,7 +39,7 @@ const Change = keyframes`
 const MainTxtBlock = styled.div`
   width: 100%;
   height: 110px;
-  color: ${colors.blue};
+  color: ${colors.blue[1]};
   position: relative;
   &::before {
     content: '<h1>';
@@ -68,7 +68,7 @@ const MainTxtBlock = styled.div`
       position: absolute;
       font-size: 1.7rem;
       font-family: 'Caramel';
-      color: ${colors.blue};
+      color: ${colors.blue[1]};
       right: 0;
       transform: translate(120%, 15%);
     }
@@ -95,7 +95,7 @@ const MainTxtBlock = styled.div`
         top: 50%;
         transform: translateY(-50%);
 
-        color: ${colors.blue};
+        color: ${colors.blue[1]};
         font-size: 2.1rem;
         line-height: 3.1rem;
 

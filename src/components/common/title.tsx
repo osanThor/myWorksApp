@@ -50,7 +50,7 @@ const TitleBlock = styled.div`
         #ff7328,
         #f8b800,
         ${colors.cyan},
-        ${colors.blue}
+        ${colors.blue[0]}
       ),
       radial-gradient(circle, #f415ce, #ff007d, #ff7328, #f8b800, #a8eb12);
     transition: all 0.3s ease-in;
@@ -75,7 +75,7 @@ const TitleBlock = styled.div`
   &:before {
     position: absolute;
     left: 0;
-    color: ${colors.blue};
+    color: ${colors.blue[1]};
     font-size: 1.7rem;
     font-family: 'Caramel';
   }

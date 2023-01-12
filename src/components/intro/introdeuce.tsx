@@ -17,13 +17,13 @@ const Introdeuce = () => {
 
 const Stroke = keyframes`
   0%   {
-		fill: rgba(72,138,20,0); stroke: ${colors.blue};
+		fill: rgba(72,138,20,0); stroke: ${colors.blue[0]};
 		stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
 	}
-	70%  {fill: rgba(72,138,20,0); stroke: ${colors.blue}; }
-	80%  {fill: rgba(72,138,20,0); stroke: ${colors.blue}; stroke-width: 4; }
+	70%  {fill: rgba(72,138,20,0); stroke: ${colors.blue[1]}; }
+	80%  {fill: rgba(72,138,20,0); stroke: ${colors.blue[1]}; stroke-width: 4; }
 	100% {
-		fill: ${colors.blue}; stroke: rgba(54,95,160,0); 
+		fill: ${colors.blue[0]}; stroke: rgba(54,95,160,0); 
 		stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
 	}
   `;
@@ -46,10 +46,10 @@ const IntrodeuceBlock = styled.div`
   svg text {
     animation: ${Stroke} 5s alternate;
     stroke-width: 2;
-    stroke: ${colors.blue};
+    stroke: ${colors.blue[0]};
     font-size: 140px;
     font-weight: 800;
-    fill: ${colors.blue};
+    fill: ${colors.blue[0]};
     position: absolute;
     transform: translate(-15%, -13%);
     transition: all 0.3s ease-in-out;
@@ -66,7 +66,7 @@ const IntrodeuceBlock = styled.div`
   &:before {
     position: absolute;
     left: 0;
-    color: ${colors.blue};
+    color: ${colors.blue[1]};
     font-size: 1.7rem;
     font-family: 'Caramel';
   }

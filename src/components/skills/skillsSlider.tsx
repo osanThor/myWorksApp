@@ -145,7 +145,7 @@ const SkillsSliderBlock = styled.div`
       color: ${colors.cyan};
     }
     .blue {
-      color: ${colors.blue};
+      color: ${colors.blue[1]};
     }
     .yellow {
       color: ${colors.pastel[1]};
