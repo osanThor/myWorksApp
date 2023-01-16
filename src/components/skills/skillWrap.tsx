@@ -79,6 +79,7 @@ const SkillItem = ({ skill }: SkillProps) => {
           />
         )}
       </div>
+      <span className="cloudWin">{skill?.name}</span>
     </li>
   );
 };
@@ -137,11 +138,22 @@ const SkillWrapBlock = styled.div`
       margin-top: 1rem;
     }
     .skill_wrap {
-      padding: 1em 0;
+      padding: 1em 0 2rem;
       border-bottom: 1px solid ${colors.blue[0]};
       .title {
         color: ${colors.dark[0]};
         margin-bottom: 1rem;
+        padding-left: 1rem;
+        position: relative;
+        &::before {
+          content: '';
+          width: 7px;
+          height: 7px;
+          background-color: ${colors.blue[0]};
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
       }
       .skill_list {
         display: flex;
@@ -152,6 +164,7 @@ const SkillWrapBlock = styled.div`
           display: flex;
           justify-content: center;
           align-items: center;
+          position: relative;
           .icon {
             width: 72px;
             min-width: 72px;
@@ -160,6 +173,38 @@ const SkillWrapBlock = styled.div`
             background-color: ${colors.white};
             border-radius: 11px;
             overflow: hidden;
+          }
+          span.cloudWin {
+            background-color: ${colors.white};
+            position: absolute;
+            padding: 4px 7px;
+            border-radius: 7px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -20px);
+            text-align: center;
+            transition: all 0.3s ease-in;
+            opacity: 0;
+            visibility: hidden;
+            &::after {
+              content: '';
+              width: 0;
+              height: 0;
+              border-bottom: 10px solid ${colors.white};
+              border-left: 7px solid transparent;
+              border-right: 7px solid transparent;
+              position: absolute;
+              left: 50%;
+              top: 100%;
+              transform: rotate(180deg) translateX(50%);
+            }
+          }
+          &:hover {
+            span.cloudWin {
+              opacity: 1;
+              visibility: visible;
+            }
           }
         }
       }
