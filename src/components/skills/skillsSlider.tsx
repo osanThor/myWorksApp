@@ -36,6 +36,7 @@ const SkillsSlider = () => {
       <Swiper
         navigation={true}
         loop={true}
+        slidesPerView={1}
         modules={[Navigation]}
         className="mySwiper"
       >
@@ -93,25 +94,29 @@ const SkillSliderItem = ({ skill }: SkillProps) => {
     }
   }, [skill?.skillCategory]);
 
+  console.log(skill.id, visible);
+
   return (
-    <div className="intro-cell" ref={targetRef}>
-      {visible && (
-        <ParticleImage
-          src={Skill[skill.logoNum].src}
-          width={310}
-          height={310}
-          scale={0.5}
-          entropy={10}
-          maxParticles={4000}
-          particleOptions={particleOptions}
-          mouseMoveForce={motionForce}
-          touchMoveForce={motionForce}
-          backgroundColor={colors.white}
-        />
-      )}
-      <div className="intro-text">
-        <h2 className={cateColor}>{skill.skillCategory}</h2>
-        <h1 ref={skillTitleRef} />
+    <div className="intro-cell">
+      <div className="intro-box" ref={targetRef}>
+        {visible && (
+          <ParticleImage
+            src={Skill[skill.logoNum].src}
+            width={310}
+            height={310}
+            scale={0.5}
+            entropy={10}
+            maxParticles={4000}
+            particleOptions={particleOptions}
+            mouseMoveForce={motionForce}
+            touchMoveForce={motionForce}
+            backgroundColor={colors.white}
+          />
+        )}
+        <div className="intro-text">
+          <h2 className={cateColor}>{skill.skillCategory}</h2>
+          <h1 ref={skillTitleRef} />
+        </div>
       </div>
     </div>
   );
@@ -130,56 +135,60 @@ const SkillsSliderBlock = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    img {
-      max-width: 100%;
-    }
-  }
+    justify-content: center;
+    .intro-box {
+      width: 100%;
+      max-width: 860px;
+      height: 100%;
+      position: relative;
+      .intro-text {
+        width: 100%;
+        position: absolute;
+        left: 50%;
+        bottom: 5%;
+        transform: translateX(-50%);
+        max-width: 860px;
+        .cyan {
+          color: ${colors.cyan};
+        }
+        .blue {
+          color: ${colors.blue[1]};
+        }
+        .yellow {
+          color: ${colors.pastel[1]};
+        }
+        .green {
+          color: ${colors.pastel[3]};
+        }
+        .red {
+          color: ${colors.red[2]};
+        }
+        .pink {
+          color: ${colors.pastel[0]};
+        }
+        h1 {
+          font-size: 2.7rem;
+          margin: 0;
+          margin-bottom: 1.5rem;
+          color: ${colors.dark[0]};
+        }
 
-  .intro-text {
-    position: absolute;
-    left: 50%;
-    bottom: 5%;
-    transform: translateX(-50%);
-    max-width: 860px;
-    .cyan {
-      color: ${colors.cyan};
-    }
-    .blue {
-      color: ${colors.blue[1]};
-    }
-    .yellow {
-      color: ${colors.pastel[1]};
-    }
-    .green {
-      color: ${colors.pastel[3]};
-    }
-    .red {
-      color: ${colors.red[2]};
-    }
-    .pink {
-      color: ${colors.pastel[0]};
-    }
-    h1 {
-      font-size: 2.7rem;
-      margin: 0;
-      margin-bottom: 1.5rem;
-      color: ${colors.dark[0]};
-    }
+        h2 {
+          font-size: 16px;
+          text-transform: uppercase;
+          margin: 0;
+          margin-bottom: 0.7rem;
+        }
 
-    h2 {
-      font-size: 16px;
-      text-transform: uppercase;
-      margin: 0;
-      margin-bottom: 0.7rem;
-    }
+        p {
+          font-size: 18px;
+          line-height: 1.2;
+        }
 
-    p {
-      font-size: 18px;
-      line-height: 1.2;
-    }
-
-    .feature {
-      height: 800px;
+        .feature {
+          height: 800px;
+        }
+      }
     }
   }
 `;
