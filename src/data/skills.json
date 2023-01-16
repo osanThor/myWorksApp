@@ -1,0 +1,25 @@
+{
+  "fes": [
+    { "imageNum": 0, "name": "HTML5", "type": "Fe" },
+    { "imageNum": 1, "name": "CSS3", "type": "Fe" },
+    { "imageNum": 2, "name": "JAVASCRIPT", "type": "Fe" },
+    { "imageNum": 3, "name": "TYPESCRIPT", "type": "Fe" },
+    { "imageNum": 4, "name": "REACT", "type": "Fe" },
+    { "imageNum": 5, "name": "NEXT", "type": "Fe" },
+    { "imageNum": 6, "name": "REDUX", "type": "Fe" },
+    { "imageNum": 7, "name": "BABEL", "type": "Fe" },
+    { "imageNum": 8, "name": "SASS(SCSS)", "type": "Fe" },
+    { "imageNum": 9, "name": "STYLED-COMPONENT", "type": "Fe" }
+  ],
+  "bes": [
+    { "imageNum": 0, "name": "NODE", "type": "Be" },
+    { "imageNum": 1, "name": "EXPRESS", "type": "Be" },
+    { "imageNum": 2, "name": "FIREBASE", "type": "Be" },
+    { "imageNum": 3, "name": "MONGODB", "type": "Be" }
+  ],
+  "etcs": [
+    { "imageNum": 0, "name": "GIT", "type": "Etc" },
+    { "imageNum": 1, "name": "GITHUB", "type": "Etc" },
+    { "imageNum": 2, "name": "GITLAB", "type": "Etc" }
+  ]
+}

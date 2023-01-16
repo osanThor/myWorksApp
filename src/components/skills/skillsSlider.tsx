@@ -95,6 +95,7 @@ const SkillSliderItem = ({ skill }: SkillProps) => {
   }, [skill?.skillCategory]);
 
   console.log(skill.id, visible);
+  console.log(targetRef);
 
   return (
     <div className="intro-cell">
