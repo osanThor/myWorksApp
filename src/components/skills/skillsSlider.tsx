@@ -52,7 +52,7 @@ const SkillsSlider = () => {
 
 const SkillSliderItem = ({ skill }: SkillProps) => {
   const targetRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState<boolean>(false);
+  const [visible, setVisible] = useState<boolean>(true);
 
   useEffect(() => {
     Observer(targetRef, setVisible);
