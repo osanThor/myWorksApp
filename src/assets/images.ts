@@ -17,6 +17,7 @@ import Fe07 from 'public/images/skills/icons/fe07.png';
 import Fe08 from 'public/images/skills/icons/fe08.png';
 import Fe09 from 'public/images/skills/icons/fe09.png';
 import Fe10 from 'public/images/skills/icons/fe10.png';
+import Fe11 from 'public/images/skills/icons/fe11.png';
 import Be01 from 'public/images/skills/icons/be01.png';
 import Be02 from 'public/images/skills/icons/be02.png';
 import Be03 from 'public/images/skills/icons/be03.png';
@@ -28,6 +29,18 @@ import Etc03 from 'public/images/skills/icons/etc03.png';
 export const Logo = LogoImage;
 export const Profile = [Profile1, Profile2];
 export const Skill = [Javascript, Typescript, React, Sass, Styled, Firebase];
-export const Fe = [Fe01, Fe02, Fe03, Fe04, Fe05, Fe06, Fe07, Fe08, Fe09, Fe10];
+export const Fe = [
+  Fe01,
+  Fe02,
+  Fe03,
+  Fe04,
+  Fe05,
+  Fe06,
+  Fe07,
+  Fe08,
+  Fe09,
+  Fe10,
+  Fe11,
+];
 export const Be = [Be01, Be02, Be03, Be04];
 export const Etc = [Etc01, Etc02, Etc03];
