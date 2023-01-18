@@ -160,7 +160,7 @@ const SkillWrapBlock = styled.div`
         flex-wrap: wrap;
         li {
           margin: 1rem 0;
-          width: 20%;
+          width: 16.666%;
           display: flex;
           justify-content: center;
           align-items: center;

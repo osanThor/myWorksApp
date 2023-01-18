@@ -9,7 +9,8 @@
     { "imageNum": 6, "name": "REDUX", "type": "Fe" },
     { "imageNum": 7, "name": "BABEL", "type": "Fe" },
     { "imageNum": 8, "name": "SASS(SCSS)", "type": "Fe" },
-    { "imageNum": 9, "name": "STYLED-COMPONENT", "type": "Fe" }
+    { "imageNum": 9, "name": "STYLED-COMPONENT", "type": "Fe" },
+    { "imageNum": 10, "name": "JQUERY", "type": "Fe" }
   ],
   "bes": [
     { "imageNum": 0, "name": "NODE", "type": "Be" },
