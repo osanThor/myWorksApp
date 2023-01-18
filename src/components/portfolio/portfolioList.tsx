@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { PLogo } from '../../assets/images';
 import projects from '../../data/main_project.json';
 import ImageBox from '../common/imageBox';
+import colors from '../../assets/colors';
 
 interface ProjectProps {
   pj: {
@@ -74,8 +75,25 @@ const PortfolioListBlock = styled.div`
     display: flex;
     justify-content: center;
   }
+  &::before {
+    content: '<div>';
+    top: 0;
+  }
+  &::after {
+    content: '</div>';
+    bottom: 0;
+  }
+  &:after,
+  &:before {
+    position: absolute;
+    color: ${colors.blue[1]};
+    font-size: 1.7rem;
+    left: 0;
+    font-family: 'Caramel';
+  }
 
   ${media.tablet} {
+    padding: 2rem 0;
     .project_list {
       .item {
         width: 33.333%;
