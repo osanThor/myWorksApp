@@ -59,7 +59,7 @@ const TitleBlock = styled.div`
     &.on {
       opacity: 1;
       transform: translateX(0);
-      animation: ${ExpandRev} 3s linear;
+      animation: ${ExpandRev} 1.5s linear;
     }
   }
 

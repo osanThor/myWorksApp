@@ -25,6 +25,14 @@ import Be04 from 'public/images/skills/icons/be04.png';
 import Etc01 from 'public/images/skills/icons/etc01.png';
 import Etc02 from 'public/images/skills/icons/etc02.png';
 import Etc03 from 'public/images/skills/icons/etc03.png';
+import PLogo01 from 'public/images/portfolio/p_logo01.png';
+import PLogo02 from 'public/images/portfolio/p_logo02.png';
+import PLogo03 from 'public/images/portfolio/p_logo03.png';
+import PLogo04 from 'public/images/portfolio/p_logo04.png';
+import PLogo05 from 'public/images/portfolio/p_logo05.png';
+import PLogo06 from 'public/images/portfolio/p_logo06.png';
+import PLogo07 from 'public/images/portfolio/p_logo07.png';
+import PLogo08 from 'public/images/portfolio/p_logo08.png';
 
 export const Logo = LogoImage;
 export const Profile = [Profile1, Profile2];
@@ -44,3 +52,13 @@ export const Fe = [
 ];
 export const Be = [Be01, Be02, Be03, Be04];
 export const Etc = [Etc01, Etc02, Etc03];
+export const PLogo = [
+  PLogo01,
+  PLogo02,
+  PLogo03,
+  PLogo04,
+  PLogo05,
+  PLogo06,
+  PLogo07,
+  PLogo08,
+];

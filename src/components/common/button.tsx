@@ -18,15 +18,18 @@ const buttonStyle = css`
   border: none;
   min-width: 120px;
   min-height: 38px;
-  border-radius: 7px;
+  border-radius: 30px;
   padding: 7px 1rem;
   font-size: 1rem;
   color: ${colors.gray[5]};
+  border: 1px solid ${colors.gray[5]};
   outline: none;
   cursor: pointer;
   transition: all 0.2s;
-  background: ${colors.gray[2]};
+  background: ${colors.white};
   &:hover {
+    background-color: ${colors.gray[5]};
+    color: white;
   }
 
   ${(props: PropsType) =>
@@ -40,8 +43,13 @@ const buttonStyle = css`
   ${(props: PropsType) =>
     props.blue &&
     css`
-      background: ${colors.blue[0]};
-      color: white;
+      border-color: ${colors.blue[0]};
+      color: ${colors.blue[0]};
+
+      &:hover {
+        background-color: ${colors.blue[0]};
+        color: white;
+      }
     `}
  
     &:disabled {

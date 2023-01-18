@@ -94,9 +94,6 @@ const SkillSliderItem = ({ skill }: SkillProps) => {
     }
   }, [skill?.skillCategory]);
 
-  console.log(skill.id, visible);
-  console.log(targetRef);
-
   return (
     <div className="intro-cell">
       <div className="intro-box" ref={targetRef}>
@@ -125,9 +122,9 @@ const SkillSliderItem = ({ skill }: SkillProps) => {
 
 const SkillsSliderBlock = styled.div`
   width: 100%;
-  min-height: 430px;
+  min-height: 400px;
   display: flex;
-  margin: 2rem 0;
+  margin: 1rem 0;
 
   .intro-cell {
     width: 100%;
