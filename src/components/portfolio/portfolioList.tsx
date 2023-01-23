@@ -68,6 +68,9 @@ const PortfolioListBlock = styled.div`
       img {
         max-width: calc(100% - 36px);
       }
+      &:hover {
+        scale: 1.1;
+      }
     }
   }
   .btn_area {
