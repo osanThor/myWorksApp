@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { Logo, Skill } from '../../assets/images';
 import ParticleImage, {
   ParticleOptions,
