@@ -2,13 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import { media } from '../../styles/theme';
 import Container from '../components/common/container';
+import Footer from '../components/common/footer';
 import Header from '../components/common/header';
 
 const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <DefaultLayoutBlock>
       <Header />
-      <Container>{children}</Container>
+      <Container>
+        {children}
+        <Footer />
+      </Container>
     </DefaultLayoutBlock>
   );
 };

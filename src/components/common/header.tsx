@@ -10,7 +10,7 @@ const Header = () => {
     <>
       <HeaderBlock>
         <div className="logo">
-          <Image src={Logo} alt="main logo" layout="fill" />
+          <Image src={Logo[0]} alt="main logo" layout="fill" sizes="" />
         </div>
       </HeaderBlock>
       <Spacer />
@@ -33,7 +33,7 @@ const HeaderBlock = styled.div`
 
   .logo {
     width: 100%;
-    height: 32px;
+    height: 30px;
     position: relative;
   }
 

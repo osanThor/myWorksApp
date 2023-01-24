@@ -9,7 +9,7 @@ const Container = ({ children }: { children: React.ReactNode }) => {
 const ContainerBlock = styled.div`
   flex: 1;
   min-height: 100%;
-  overflow-y: auto;
+  overflow-y: hidden;
   position: relative;
 `;
 
