@@ -78,6 +78,13 @@ const FooterBlock = styled.div`
       left: 1rem;
     }
     .footer_container {
+      .f_logo {
+        order: 1;
+        margin-bottom: 1rem;
+      }
+      .copy_txt {
+        order: 2;
+      }
       &::before,
       &::after {
         left: 0;
