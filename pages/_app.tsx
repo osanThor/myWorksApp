@@ -6,7 +6,7 @@ import { useDarkMode } from '../src/hooks/useDarkmode';
 import { darkTheme, lightTheme } from '../styles/theme';
 
 export default function App({ Component, pageProps }: AppProps) {
-  const [themeMode, toggleTheme] = useDarkMode();
+  const [themeMode] = useDarkMode();
   const theme =
     themeMode === 'light' ? { mode: lightTheme } : { mode: darkTheme };
 

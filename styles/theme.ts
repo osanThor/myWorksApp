@@ -4,7 +4,7 @@ const darkTheme = {
   boxShadow: '0 4px 12px rgba(0 0 0 / 10%)',
 };
 const lightTheme = {
-  bgColor: 'white',
+  bgColor: '#FFF8F3',
   textColor: 'black',
   boxShadow: '0 4px 12px rgba(0 0 0 / 10%)',
 };

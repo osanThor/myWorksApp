@@ -20,6 +20,8 @@ const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
 const DefaultLayoutBlock = styled.div`
   width: 100%;
   min-height: 100%;
+  background-color: ${({ theme }) => theme.mode.bgColor};
+  color: ${({ theme }) => theme.mode.textColor};
   position: relative;
   display: flex;
 
