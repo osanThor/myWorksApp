@@ -16,26 +16,37 @@ interface ProjectProps {
     period: string;
     bgColor: string;
   };
+  onClick: () => void;
 }
 
 const PortfolioList = () => {
+  const handleClick = () => {
+    alert('준비중입니다.');
+    return;
+  };
   return (
     <PortfolioListBlock>
       <div className="project_list">
         {projects?.map((pj) => (
-          <ProjectItem key={pj?.id} pj={pj} />
+          <ProjectItem key={pj?.id} pj={pj} onClick={handleClick} />
         ))}
       </div>
       <div className="btn_area">
-        <Button blue>더보기</Button>
+        <Button blue onClick={handleClick}>
+          더보기
+        </Button>
       </div>
     </PortfolioListBlock>
   );
 };
 
-const ProjectItem = ({ pj }: ProjectProps) => {
+const ProjectItem = ({ pj, onClick }: ProjectProps) => {
   return (
-    <div className="item" style={{ backgroundColor: pj?.bgColor }}>
+    <div
+      className="item"
+      style={{ backgroundColor: pj?.bgColor }}
+      onClick={onClick}
+    >
       <div className="hover_effct" />
       <div className="hover_effct" />
       <div className="hover_txt">

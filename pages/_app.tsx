@@ -1,14 +1,19 @@
 import type { AppProps } from 'next/app';
 import '../styles/fonts.css';
-import { ThemeProvider } from 'styled-components';
+import { DefaultTheme, ThemeProvider } from 'styled-components';
 import GlobalStyle from '../styles/global-styles';
-import theme from '../styles/theme';
+import { useDarkMode } from '../src/hooks/useDarkmode';
+import { darkTheme, lightTheme } from '../styles/theme';
 
 export default function App({ Component, pageProps }: AppProps) {
+  const [themeMode, toggleTheme] = useDarkMode();
+  const theme =
+    themeMode === 'light' ? { mode: lightTheme } : { mode: darkTheme };
+
   return (
     <>
-      <GlobalStyle />
       <ThemeProvider theme={theme}>
+        <GlobalStyle />
         <Component {...pageProps} />
       </ThemeProvider>
     </>

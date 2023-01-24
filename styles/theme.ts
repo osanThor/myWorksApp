@@ -1,26 +1,15 @@
-export const darkTheme = {
-  bgColor: 'black',
+const darkTheme = {
+  bgColor: '#424248',
   textColor: 'white',
   boxShadow: '0 4px 12px rgba(0 0 0 / 10%)',
 };
-export const lightTheme = {
+const lightTheme = {
   bgColor: 'white',
   textColor: 'black',
   boxShadow: '0 4px 12px rgba(0 0 0 / 10%)',
 };
 
-const theme = {
-  darkTheme,
-  lightTheme,
-};
-
-export default theme;
-
-export type themeType = {
-  bgColor: string;
-  textColor: string;
-  boxShadow: string;
-};
+export { darkTheme, lightTheme };
 
 const customMediaQuery = (maxWidth: number): string =>
   `@media (max-width: ${maxWidth}px)`;
