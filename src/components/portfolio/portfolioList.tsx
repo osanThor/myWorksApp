@@ -81,7 +81,7 @@ const PortfolioListBlock = styled.div`
         opacity: 0;
       }
       .hover_effct {
-        transition: all 0.4s;
+        transition: all 0.5s ease-in-out;
         width: 0;
         height: 0;
         position: absolute;
@@ -171,9 +171,16 @@ const PortfolioListBlock = styled.div`
     }
   }
   ${media.mobile} {
+    padding: 3rem 0;
     .project_list {
       .item {
         width: 50%;
+      }
+    }
+    .btn_area {
+      button {
+        width: 100%;
+        height: 48px;
       }
     }
   }
