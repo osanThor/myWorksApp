@@ -4,14 +4,22 @@ import styled from 'styled-components';
 import { media } from '../../../styles/theme';
 import colors from '../../assets/colors';
 import { Logo } from '../../assets/images';
+import ToggleThemeBtn from './toggleThemeBtn';
 
-const Header = () => {
+const Header = ({
+  themeMode,
+  useDarkmode,
+}: {
+  themeMode: string;
+  useDarkmode: () => void;
+}) => {
   return (
     <>
       <HeaderBlock>
         <div className="logo">
           <Image src={Logo[0]} alt="main logo" layout="fill" sizes="" />
         </div>
+        <ToggleThemeBtn themeMode={themeMode} useDarkmode={useDarkmode} />
       </HeaderBlock>
       <Spacer />
     </>
@@ -25,11 +33,12 @@ const HeaderBlock = styled.div`
   top: 0;
   left: 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   z-index: 990;
   padding: 1rem;
   box-shadow: 0 0 10px ${colors.gray[3]};
-  background-color: rgba(255, 248, 243, 0.7);
+  background-color: ${({ theme }) => theme.mode.headerBgColor};
 
   .logo {
     width: 100%;
@@ -41,7 +50,7 @@ const HeaderBlock = styled.div`
     width: 100%;
     height: 70px;
     padding: 1rem;
-    justify-content: flex-start;
+    flex-direction: row;
     align-items: center;
 
     .logo {

@@ -21,6 +21,7 @@ const buttonStyle = css`
   border-radius: 30px;
   padding: 7px 1rem;
   font-size: 1rem;
+  font-family: 'LINESeedKR';
   color: ${colors.gray[5]};
   border: 1px solid ${colors.gray[5]};
   outline: none;

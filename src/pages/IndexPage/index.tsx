@@ -8,12 +8,12 @@ import SkillsSection from './skillsSection';
 
 const index: NextPage = () => {
   return (
-    <DefaultLayout>
+    <>
       <IntroSection />
       <AboutMeSection />
       <SkillsSection />
       <PortfolioSection />
-    </DefaultLayout>
+    </>
   );
 };
 
