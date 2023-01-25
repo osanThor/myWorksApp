@@ -5,10 +5,20 @@ import Container from '../components/common/container';
 import Footer from '../components/common/footer';
 import Header from '../components/common/header';
 
-const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
+interface DefaultLayoutProps {
+  children: React.ReactNode;
+  themeMode: string;
+  useDarkmode: () => void;
+}
+
+const DefaultLayout = ({
+  children,
+  themeMode,
+  useDarkmode,
+}: DefaultLayoutProps) => {
   return (
     <DefaultLayoutBlock>
-      <Header />
+      <Header themeMode={themeMode} useDarkmode={useDarkmode} />
       <Container>
         {children}
         <Footer />
