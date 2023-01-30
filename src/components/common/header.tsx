@@ -6,20 +6,14 @@ import colors from '../../assets/colors';
 import { Logo } from '../../assets/images';
 import ToggleThemeBtn from './toggleThemeBtn';
 
-const Header = ({
-  themeMode,
-  useDarkmode,
-}: {
-  themeMode: string;
-  useDarkmode: () => void;
-}) => {
+const Header = () => {
   return (
     <>
       <HeaderBlock>
         <div className="logo">
           <Image src={Logo[0]} alt="main logo" layout="fill" sizes="" />
         </div>
-        <ToggleThemeBtn themeMode={themeMode} useDarkmode={useDarkmode} />
+        <ToggleThemeBtn />
       </HeaderBlock>
       <Spacer />
     </>

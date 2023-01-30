@@ -7,18 +7,12 @@ import Header from '../components/common/header';
 
 interface DefaultLayoutProps {
   children: React.ReactNode;
-  themeMode: string;
-  useDarkmode: () => void;
 }
 
-const DefaultLayout = ({
-  children,
-  themeMode,
-  useDarkmode,
-}: DefaultLayoutProps) => {
+const DefaultLayout = ({ children }: DefaultLayoutProps) => {
   return (
     <DefaultLayoutBlock>
-      <Header themeMode={themeMode} useDarkmode={useDarkmode} />
+      <Header />
       <Container>
         {children}
         <Footer />

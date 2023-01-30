@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <DefaultLayout themeMode={themeMode} useDarkmode={useDarkmode}>
+        <DefaultLayout>
           <Component {...pageProps} />
         </DefaultLayout>
       </ThemeProvider>
