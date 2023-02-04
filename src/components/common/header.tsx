@@ -36,7 +36,7 @@ const HeaderBlock = styled.div`
   justify-content: space-between;
   z-index: 990;
   padding: 1rem;
-  box-shadow: 0 0 10px ${colors.gray[3]};
+  box-shadow: ${({ theme }) => theme.mode.boxShadow};
   background-color: ${({ theme }) => theme.mode.headerBgColor};
 
   .logo {

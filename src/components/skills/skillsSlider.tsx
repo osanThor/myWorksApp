@@ -111,7 +111,7 @@ const SkillSliderItem = ({ skill }: SkillProps) => {
             mouseMoveForce={motionForce}
             touchMoveForce={motionForce}
             backgroundColor={
-              themeName === 'light' ? colors.white : colors.dark[1]
+              themeName === 'light' ? colors.white : colors.dark[2]
             }
           />
         )}
@@ -172,7 +172,7 @@ const SkillsSliderBlock = styled.div`
           font-size: 2.7rem;
           margin: 0;
           margin-bottom: 1.5rem;
-          color: ${colors.dark[0]};
+          color: ${({ theme }) => theme.mode.mTxtColor};
         }
 
         h2 {

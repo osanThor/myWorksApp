@@ -51,7 +51,7 @@ const AboutMeImageBlock = styled.div`
   &:after,
   &:before {
     position: absolute;
-    color: ${colors.blue[1]};
+    color: ${({ theme }) => theme.mode.subColor};
     font-size: 1.7rem;
     font-family: 'Caramel';
   }
@@ -72,7 +72,7 @@ const AboutMeImageBlock = styled.div`
     &:after,
     &:before {
       position: absolute;
-      color: ${colors.blue[1]};
+      color: ${({ theme }) => theme.mode.subColor};
       font-size: 2rem;
     }
   }

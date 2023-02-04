@@ -25,7 +25,7 @@ const AboutDescritionBlock = styled.div`
   padding: 2rem;
   margin: 1rem 0;
   position: relative;
-  color: ${colors.gray[5]};
+  color: ${({ theme }) => theme.mode.pTxtColor};
   line-height: 1.5rem;
   flex: 1.5;
   word-break: keep-all;
@@ -50,7 +50,7 @@ const AboutDescritionBlock = styled.div`
   &:before {
     position: absolute;
     left: 0;
-    color: ${colors.blue[1]};
+    color: ${({ theme }) => theme.mode.subColor};
     font-size: 1.7rem;
     font-family: 'Caramel';
   }

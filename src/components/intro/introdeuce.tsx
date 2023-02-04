@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { media } from '../../../styles/theme';
-import colors from '../../assets/colors';
 
 const Introdeuce = () => {
   return (
@@ -15,18 +14,20 @@ const Introdeuce = () => {
   );
 };
 
-const Stroke = keyframes`
-  0%   {
-		fill: rgba(72,138,20,0); stroke: ${colors.blue[0]};
+function StrokeAnima(props: any) {
+  return keyframes`
+        0%   {
+		fill: rgba(72,138,20,0); stroke: ${props.mode.mainColor};
 		stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
 	}
-	70%  {fill: rgba(72,138,20,0); stroke: ${colors.blue[1]}; }
-	80%  {fill: rgba(72,138,20,0); stroke: ${colors.blue[1]}; stroke-width: 4; }
+	70%  {fill: rgba(72,138,20,0); stroke: ${props.mode.subColor} }
+	80%  {fill: rgba(72,138,20,0); stroke: ${props.mode.mainColor}; stroke-width: 4; }
 	100% {
-		fill: ${colors.blue[0]}; stroke: rgba(54,95,160,0); 
+		fill: ${props.mode.mainColor}; stroke: rgba(54,95,160,0); 
 		stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
 	}
-  `;
+    `;
+}
 
 const IntrodeuceBlock = styled.div`
   width: 100%;
@@ -44,18 +45,15 @@ const IntrodeuceBlock = styled.div`
     height: 100%;
   }
   svg text {
-    animation: ${Stroke} 5s alternate;
+    animation: ${({ theme }) => StrokeAnima(theme)} 5s alternate;
     stroke-width: 2;
-    stroke: ${colors.blue[0]};
+    stroke: ${({ theme }) => theme.mode.mainColor};
     font-size: 140px;
     font-weight: 800;
-    fill: ${colors.blue[0]};
+    fill: ${({ theme }) => theme.mode.mainColor};
     position: absolute;
     transform: translate(-15%, -13%);
     transition: all 0.3s ease-in-out;
-    &:hover {
-      fill: ${colors.white};
-    }
   }
 
   &::after {
@@ -66,7 +64,7 @@ const IntrodeuceBlock = styled.div`
   &:before {
     position: absolute;
     left: 0;
-    color: ${colors.blue[1]};
+    color: ${({ theme }) => theme.mode.subColor};
     font-size: 1.7rem;
     font-family: 'Caramel';
   }

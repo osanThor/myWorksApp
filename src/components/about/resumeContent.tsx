@@ -59,14 +59,14 @@ const ResumeContentBlock = styled.div`
   &:before {
     position: absolute;
     left: 0;
-    color: ${colors.blue[1]};
+    color: ${({ theme }) => theme.mode.subColor};
     font-size: 1.7rem;
     font-family: 'Caramel';
   }
   ul {
     width: 100%;
     position: relative;
-    background-color: ${colors.gray[1]};
+    background-color: ${({ theme }) => theme.mode.bgColor3};
     border-radius: 0 7px 7px 0;
     padding: 1rem 0;
 
@@ -74,7 +74,7 @@ const ResumeContentBlock = styled.div`
       content: '';
       width: 1px;
       height: 100%;
-      background-color: ${colors.blue[0]};
+      background-color: ${({ theme }) => theme.mode.mainColor};
       position: absolute;
       top: 0;
       left: 0;
@@ -96,7 +96,7 @@ const ResumeContentBlock = styled.div`
         content: '';
         width: 10px;
         height: 10px;
-        border: 3px solid ${colors.blue[1]};
+        border: 3px solid ${({ theme }) => theme.mode.subColor};
         background-color: white;
         position: absolute;
         top: 0;
@@ -114,12 +114,12 @@ const ResumeContentBlock = styled.div`
         top: 0;
         left: 1rem;
         padding: 0 2rem;
-        background-color: ${colors.white};
+        background-color: ${({ theme }) => theme.mode.bgColor};
         border-radius: 7px;
         transition: all 0.5s;
         &:hover {
-          background-color: ${colors.cyan};
-          color: ${colors.blue[1]};
+          background-color: ${({ theme }) => theme.mode.pointColor};
+          color: ${({ theme }) => theme.mode.subColor};
           span.date {
             color: white;
           }
@@ -130,7 +130,7 @@ const ResumeContentBlock = styled.div`
         }
         span.date {
           font-size: 0.75rem;
-          color: ${colors.blue[1]};
+          color: ${({ theme }) => theme.mode.subColor};
         }
         &::before {
           content: '<li>';
@@ -145,7 +145,7 @@ const ResumeContentBlock = styled.div`
         &:after,
         &:before {
           position: absolute;
-          color: ${colors.blue[1]};
+          color: ${({ theme }) => theme.mode.subColor};
           font-size: 1.25rem;
           font-family: 'Caramel';
         }

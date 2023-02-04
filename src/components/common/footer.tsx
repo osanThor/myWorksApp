@@ -24,7 +24,7 @@ const Footer = () => {
 const FooterBlock = styled.div`
   width: 100%;
   padding: 1rem 2rem 5rem;
-  background-color: ${colors.blue[0]};
+  background-color: ${({ theme }) => theme.mode.mainColor};
   position: relative;
   color: white;
   .footer_container {

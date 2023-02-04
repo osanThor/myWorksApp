@@ -58,14 +58,14 @@ const IntroDescriptBlock = styled.div`
   &:before {
     position: absolute;
     left: 0;
-    color: ${colors.blue[1]};
+    color: ${({ theme }) => theme.mode.subColor};
     font-size: 1.7rem;
     font-family: 'Caramel';
   }
 
   .txt {
     margin-top: 1px;
-    color: ${colors.gray[5]};
+    color: ${({ theme }) => theme.mode.pTxtColor};
     margin-right: 0.5rem;
   }
   .dynamic-txts {
