@@ -88,6 +88,7 @@ const IntroDescriptBlock = styled.div`
           left: 0;
           top: 0;
           border-left: 2px solid #fc6d6c;
+          transition: all 0.5s;
           width: 100%;
           height: 100%;
           background: ${({ theme }) => theme.mode.bgColor};

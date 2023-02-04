@@ -7,12 +7,13 @@ import Header from '../components/common/header';
 
 interface DefaultLayoutProps {
   children: React.ReactNode;
+  themeToggler: () => void;
 }
 
-const DefaultLayout = ({ children }: DefaultLayoutProps) => {
+const DefaultLayout = ({ children, themeToggler }: DefaultLayoutProps) => {
   return (
     <DefaultLayoutBlock>
-      <Header />
+      <Header themeToggler={themeToggler} />
       <Container>
         {children}
         <Footer />
@@ -28,6 +29,7 @@ const DefaultLayoutBlock = styled.div`
   color: ${({ theme }) => theme.mode.textColor};
   position: relative;
   display: flex;
+  transition: all 0.5s;
 
   ${media.tablet} {
     flex-direction: column;

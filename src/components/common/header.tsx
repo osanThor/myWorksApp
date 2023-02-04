@@ -6,7 +6,7 @@ import { Logo } from '../../assets/images';
 import { useThemeContext } from '../../contexts/theme.context';
 import ToggleThemeBtn from './toggleThemeBtn';
 
-const Header = () => {
+const Header = ({ themeToggler }: { themeToggler: () => void }) => {
   const theme = useThemeContext();
 
   return (
@@ -20,7 +20,7 @@ const Header = () => {
             sizes=""
           />
         </div>
-        <ToggleThemeBtn />
+        <ToggleThemeBtn themeToggler={themeToggler} />
       </HeaderBlock>
       <Spacer />
     </>
@@ -40,7 +40,7 @@ const HeaderBlock = styled.div`
   padding: 1rem;
   box-shadow: ${({ theme }) => theme.mode.boxShadow};
   background-color: ${({ theme }) => theme.mode.headerBgColor};
-
+  transition: all 0.5s;
   .logo {
     width: 100%;
     height: 30px;

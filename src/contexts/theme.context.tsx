@@ -19,7 +19,7 @@ export const CustomThemeProvider = ({
     <ThemeContext.Provider value={theme}>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <DefaultLayout>
+        <DefaultLayout themeToggler={themeToggler}>
           {''}
           {children}
         </DefaultLayout>
