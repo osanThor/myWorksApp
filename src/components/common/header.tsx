@@ -2,18 +2,25 @@ import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
 import { media } from '../../../styles/theme';
-import colors from '../../assets/colors';
 import { Logo } from '../../assets/images';
+import { useThemeContext } from '../../contexts/theme.context';
 import ToggleThemeBtn from './toggleThemeBtn';
 
-const Header = () => {
+const Header = ({ themeToggler }: { themeToggler: () => void }) => {
+  const theme = useThemeContext();
+
   return (
     <>
       <HeaderBlock>
         <div className="logo">
-          <Image src={Logo[0]} alt="main logo" layout="fill" sizes="" />
+          <Image
+            src={theme === 'light' ? Logo[0] : Logo[2]}
+            alt="main logo"
+            layout="fill"
+            sizes=""
+          />
         </div>
-        <ToggleThemeBtn />
+        <ToggleThemeBtn themeToggler={themeToggler} />
       </HeaderBlock>
       <Spacer />
     </>
@@ -31,9 +38,9 @@ const HeaderBlock = styled.div`
   justify-content: space-between;
   z-index: 990;
   padding: 1rem;
-  box-shadow: 0 0 10px ${colors.gray[3]};
+  box-shadow: ${({ theme }) => theme.mode.boxShadow};
   background-color: ${({ theme }) => theme.mode.headerBgColor};
-
+  transition: all 0.5s;
   .logo {
     width: 100%;
     height: 30px;

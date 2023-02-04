@@ -39,7 +39,7 @@ const Change = keyframes`
 const MainTxtBlock = styled.div`
   width: 100%;
   height: 110px;
-  color: ${colors.blue[1]};
+  color: ${({ theme }) => theme.mode.subColor};
   position: relative;
   &::before {
     content: '<h1>';
@@ -61,14 +61,14 @@ const MainTxtBlock = styled.div`
     transform: translateY(-50%);
     font-size: 3.1rem;
     line-height: 3.2rem;
-    color: ${colors.cyan};
+    color: ${({ theme }) => theme.mode.pointColor};
     &::after {
       content: '<br />';
       bottom: 0;
       position: absolute;
       font-size: 1.7rem;
       font-family: 'Caramel';
-      color: ${colors.blue[1]};
+      color: ${({ theme }) => theme.mode.subColor};
       right: 0;
       transform: translate(120%, 15%);
     }
@@ -95,7 +95,7 @@ const MainTxtBlock = styled.div`
         top: 50%;
         transform: translateY(-50%);
 
-        color: ${colors.blue[0]};
+        color: ${({ theme }) => theme.mode.mainColor};
         font-size: 2.1rem;
         line-height: 3.1rem;
 
@@ -188,7 +188,7 @@ const MainTxtBlock = styled.div`
       left: 1rem;
       font-size: 1.75rem;
       line-height: 1.75rem;
-      color: ${colors.cyan};
+      color: ${({ theme }) => theme.mode.pointColor};
       &::after {
         display: none;
       }

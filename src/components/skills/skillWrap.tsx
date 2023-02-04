@@ -96,7 +96,7 @@ const SkillWrapBlock = styled.div`
     padding: 2rem;
     margin: 1rem 0;
     position: relative;
-    color: ${colors.gray[5]};
+    color: ${({ theme }) => theme.mode.pTxtColor};
     line-height: 1.5rem;
     word-break: keep-all;
     text-align: center;
@@ -122,7 +122,7 @@ const SkillWrapBlock = styled.div`
     &:after,
     &:before {
       position: absolute;
-      color: ${colors.blue[1]};
+      color: ${({ theme }) => theme.mode.subColor};
       font-size: 1.7rem;
       font-family: 'Caramel';
     }
@@ -139,9 +139,9 @@ const SkillWrapBlock = styled.div`
     }
     .skill_wrap {
       padding: 1em 0 2rem;
-      border-bottom: 1px solid ${colors.blue[0]};
+      border-bottom: 1px solid ${({ theme }) => theme.mode.mainColor};
       .title {
-        color: ${colors.dark[0]};
+        color: ${({ theme }) => theme.mode.mTxtColor};
         margin-bottom: 1rem;
         padding-left: 1rem;
         position: relative;
@@ -149,7 +149,7 @@ const SkillWrapBlock = styled.div`
           content: '';
           width: 7px;
           height: 7px;
-          background-color: ${colors.blue[0]};
+          background-color: ${({ theme }) => theme.mode.mainColor};
           position: absolute;
           top: 0;
           left: 0;
@@ -175,11 +175,11 @@ const SkillWrapBlock = styled.div`
             overflow: hidden;
           }
           span.cloudWin {
-            background-color: ${colors.white};
+            background-color: ${({ theme }) => theme.mode.bgColor2};
             position: absolute;
             padding: 4px 7px;
             border-radius: 7px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            box-shadow: ${({ theme }) => theme.mode.boxShadow};
             top: 0;
             left: 50%;
             transform: translate(-50%, -20px);
@@ -191,7 +191,7 @@ const SkillWrapBlock = styled.div`
               content: '';
               width: 0;
               height: 0;
-              border-bottom: 10px solid ${colors.white};
+              border-bottom: 10px solid ${({ theme }) => theme.mode.bgColor2};
               border-left: 7px solid transparent;
               border-right: 7px solid transparent;
               position: absolute;

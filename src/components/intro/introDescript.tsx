@@ -58,14 +58,14 @@ const IntroDescriptBlock = styled.div`
   &:before {
     position: absolute;
     left: 0;
-    color: ${colors.blue[1]};
+    color: ${({ theme }) => theme.mode.subColor};
     font-size: 1.7rem;
     font-family: 'Caramel';
   }
 
   .txt {
     margin-top: 1px;
-    color: ${colors.gray[5]};
+    color: ${({ theme }) => theme.mode.pTxtColor};
     margin-right: 0.5rem;
   }
   .dynamic-txts {
@@ -88,9 +88,10 @@ const IntroDescriptBlock = styled.div`
           left: 0;
           top: 0;
           border-left: 2px solid #fc6d6c;
+          transition: all 0.5s;
           width: 100%;
           height: 100%;
-          background: ${colors.white};
+          background: ${({ theme }) => theme.mode.bgColor};
           animation: ${Typing} 2s steps(13) infinite,
             ${Blink} 0.75s steps(12) infinite;
         }

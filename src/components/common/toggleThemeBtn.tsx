@@ -1,11 +1,11 @@
 import styled from 'styled-components';
+import { useDarkMode } from '../../hooks/useDarkmode';
 
-const ToggleThemeBtn = () => {
-  return <ToggleThemeBtnBlock>토글</ToggleThemeBtnBlock>;
+const ToggleThemeBtn = ({ themeToggler }: { themeToggler: () => void }) => {
+  return <ToggleThemeBtnBlock onClick={themeToggler}>토글</ToggleThemeBtnBlock>;
 };
 
 const ToggleThemeBtnBlock = styled.div`
-  width: 100%;
   cursor: pointer;
 `;
 

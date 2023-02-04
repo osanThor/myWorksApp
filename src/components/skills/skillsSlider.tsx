@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import { Logo, Skill } from '../../assets/images';
+import { Skill } from '../../assets/images';
 import ParticleImage, {
   ParticleOptions,
   Vector,
@@ -14,6 +14,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import colors from '../../assets/colors';
 import Observer from '../../utils/observer';
+import { useThemeContext } from '../../contexts/theme.context';
 
 interface SkillProps {
   skill: {
@@ -53,6 +54,7 @@ const SkillsSlider = () => {
 const SkillSliderItem = ({ skill }: SkillProps) => {
   const targetRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState<boolean>(true);
+  const themeName = useThemeContext();
 
   useEffect(() => {
     Observer(targetRef, setVisible);
@@ -108,7 +110,9 @@ const SkillSliderItem = ({ skill }: SkillProps) => {
             particleOptions={particleOptions}
             mouseMoveForce={motionForce}
             touchMoveForce={motionForce}
-            backgroundColor={colors.white}
+            backgroundColor={
+              themeName === 'light' ? colors.white : colors.dark[2]
+            }
           />
         )}
         <div className="intro-text">
@@ -168,7 +172,7 @@ const SkillsSliderBlock = styled.div`
           font-size: 2.7rem;
           margin: 0;
           margin-bottom: 1.5rem;
-          color: ${colors.dark[0]};
+          color: ${({ theme }) => theme.mode.mTxtColor};
         }
 
         h2 {

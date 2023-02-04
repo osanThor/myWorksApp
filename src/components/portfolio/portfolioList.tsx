@@ -167,7 +167,7 @@ const PortfolioListBlock = styled.div`
   &:after,
   &:before {
     position: absolute;
-    color: ${colors.blue[1]};
+    color: ${({ theme }) => theme.mode.subColor};
     font-size: 1.7rem;
     left: 0;
     font-family: 'Caramel';

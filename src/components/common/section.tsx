@@ -32,7 +32,7 @@ const SectionBlock = styled.div`
       position: absolute;
       font-family: 'Caramel';
       font-size: 1.7rem;
-      color: ${colors.blue[1]};
+      color: ${({ theme }) => theme.mode.subColor};
     }
   }
 
