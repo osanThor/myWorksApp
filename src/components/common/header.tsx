@@ -1,13 +1,14 @@
 import Image from 'next/image';
-import React, { useContext } from 'react';
-import styled, { ThemeContext } from 'styled-components';
+import React from 'react';
+import styled from 'styled-components';
 import { media } from '../../../styles/theme';
 import colors from '../../assets/colors';
 import { Logo } from '../../assets/images';
+import { useThemeContext } from '../../contexts/theme.context';
 import ToggleThemeBtn from './toggleThemeBtn';
 
 const Header = () => {
-  const theme = useContext(ThemeContext);
+  const theme = useThemeContext();
 
   console.log(theme);
 
