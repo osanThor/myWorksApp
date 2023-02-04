@@ -1,13 +1,15 @@
+import colors from '../src/assets/colors';
+
 const darkTheme = {
   themeName: 'dark',
-  bgColor: '#313131',
+  bgColor: `${colors.dark[1]}`,
   textColor: 'white',
   boxShadow: '0 4px 12px rgba(0 0 0 / 10%)',
   headerBgColor: 'rgba(37, 38, 43, 0.7)',
 };
 const lightTheme = {
   themeName: 'light',
-  bgColor: '#FFF8F3',
+  bgColor: `${colors.white}`,
   textColor: 'black',
   boxShadow: '0 4px 12px rgba(0 0 0 / 10%)',
   headerBgColor: 'rgba(255, 248, 243, 0.7)',
