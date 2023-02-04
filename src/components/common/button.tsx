@@ -27,7 +27,7 @@ const buttonStyle = css`
   outline: none;
   cursor: pointer;
   transition: all 0.2s;
-  background: ${colors.white};
+  background: ${({ theme }) => theme.mode.bgColor};
   &:hover {
     background-color: ${({ theme }) => theme.mode.pTxtColor};
     color: white;
@@ -44,11 +44,11 @@ const buttonStyle = css`
   ${(props: PropsType) =>
     props.blue &&
     css`
-      border-color: ${colors.blue[0]};
-      color: ${colors.blue[0]};
+      border-color: ${({ theme }) => theme.mode.mainColor};
+      color: ${({ theme }) => theme.mode.mainColor};
 
       &:hover {
-        background-color: ${colors.blue[0]};
+        background-color: ${({ theme }) => theme.mode.mainColor};
         color: white;
       }
     `}

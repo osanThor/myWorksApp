@@ -2,6 +2,8 @@ import { ThemeContext, ThemeProvider } from 'styled-components';
 import React, { useContext } from 'react';
 import { useDarkMode } from '../hooks/useDarkmode';
 import { darkTheme, lightTheme } from '../../styles/theme';
+import GlobalStyle from '../../styles/global-styles';
+import DefaultLayout from '../layout/defaultLayout';
 
 export const CustomThemeProvider = ({
   children,
@@ -16,8 +18,11 @@ export const CustomThemeProvider = ({
   return (
     <ThemeContext.Provider value={theme}>
       <ThemeProvider theme={theme}>
-        {''}
-        {children}
+        <GlobalStyle />
+        <DefaultLayout>
+          {''}
+          {children}
+        </DefaultLayout>
       </ThemeProvider>
     </ThemeContext.Provider>
   );

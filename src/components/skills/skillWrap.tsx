@@ -179,7 +179,7 @@ const SkillWrapBlock = styled.div`
             position: absolute;
             padding: 4px 7px;
             border-radius: 7px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            box-shadow: ${({ theme }) => theme.mode.boxShadow};
             top: 0;
             left: 50%;
             transform: translate(-50%, -20px);
