@@ -1,12 +1,16 @@
 import Image from 'next/image';
-import React from 'react';
-import styled from 'styled-components';
+import React, { useContext } from 'react';
+import styled, { ThemeContext } from 'styled-components';
 import { media } from '../../../styles/theme';
 import colors from '../../assets/colors';
 import { Logo } from '../../assets/images';
 import ToggleThemeBtn from './toggleThemeBtn';
 
 const Header = () => {
+  const theme = useContext(ThemeContext);
+
+  console.log(theme);
+
   return (
     <>
       <HeaderBlock>
