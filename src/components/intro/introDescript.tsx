@@ -90,7 +90,7 @@ const IntroDescriptBlock = styled.div`
           border-left: 2px solid #fc6d6c;
           width: 100%;
           height: 100%;
-          background: ${colors.white};
+          background: ${({ theme }) => theme.mode.bgColor};
           animation: ${Typing} 2s steps(13) infinite,
             ${Blink} 0.75s steps(12) infinite;
         }
