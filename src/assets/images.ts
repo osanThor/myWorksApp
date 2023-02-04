@@ -1,5 +1,6 @@
 import LogoImage from 'public/logo.png';
 import LogoWhiteImage from 'public/images/common/logo_whi.png';
+import LogoRedImage from 'public/images/common/logo_red.png';
 import Profile1 from 'public/images/about/profile1.jpeg';
 import Profile2 from 'public/images/about/profile2.jpeg';
 import Javascript from 'public/images/skills/javascript.png';
@@ -35,7 +36,7 @@ import PLogo06 from 'public/images/portfolio/p_logo06.png';
 import PLogo07 from 'public/images/portfolio/p_logo07.png';
 import PLogo08 from 'public/images/portfolio/p_logo08.png';
 
-export const Logo = [LogoImage, LogoWhiteImage];
+export const Logo = [LogoImage, LogoWhiteImage, LogoRedImage];
 export const Profile = [Profile1, Profile2];
 export const Skill = [Javascript, Typescript, React, Sass, Styled, Firebase];
 export const Fe = [

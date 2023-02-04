@@ -1,7 +1,9 @@
 import styled from 'styled-components';
+import { useDarkMode } from '../../hooks/useDarkmode';
 
 const ToggleThemeBtn = () => {
-  return <ToggleThemeBtnBlock>토글</ToggleThemeBtnBlock>;
+  const [themeMode, handleToggle] = useDarkMode();
+  return <ToggleThemeBtnBlock onClick={handleToggle}>토글</ToggleThemeBtnBlock>;
 };
 
 const ToggleThemeBtnBlock = styled.div`
