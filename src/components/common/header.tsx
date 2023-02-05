@@ -41,6 +41,7 @@ const HeaderBlock = styled.div`
   box-shadow: ${({ theme }) => theme.mode.boxShadow};
   background-color: ${({ theme }) => theme.mode.headerBgColor};
   transition: all 0.5s;
+  align-items: center;
   .logo {
     width: 100%;
     height: 30px;
