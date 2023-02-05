@@ -170,7 +170,7 @@ const SkillWrapBlock = styled.div`
             min-width: 72px;
             height: 72px;
             position: relative;
-            background-color: ${colors.white};
+            background-color: ${({ theme }) => theme.mode.bgColor};
             border-radius: 11px;
             overflow: hidden;
           }
@@ -227,7 +227,7 @@ const SkillWrapBlock = styled.div`
               min-width: 72px;
               height: 72px;
               position: relative;
-              background-color: ${colors.white};
+              background-color: ${({ theme }) => theme.mode.bgColor};
               border-radius: 11px;
               overflow: hidden;
             }
