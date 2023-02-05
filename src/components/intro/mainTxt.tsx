@@ -147,7 +147,7 @@ const MainTxtBlock = styled.div`
       left: 1rem;
       font-size: 2.5rem;
       line-height: 2.5rem;
-      color: ${colors.cyan};
+      color: ${({ theme }) => theme.mode.pointColor};
       &::after {
         display: none;
       }
