@@ -34,8 +34,9 @@ const SideBar = ({ children }: { children: React.ReactNode }) => {
             </Link>
           </li>
         </ul>
-        {children}
+        <span className="spacer" />
       </div>
+      {children}
     </SideBarBlock>
   );
 };
@@ -43,11 +44,15 @@ const SideBar = ({ children }: { children: React.ReactNode }) => {
 const SideBarBlock = styled.div`
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   .menuWrap {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 100%;
     .gnb {
       width: 100%;
       li {
@@ -91,13 +96,15 @@ const SideBarBlock = styled.div`
 
   ${media.tablet} {
     width: auto;
-    display: flex;
+    flex-direction: row;
     align-items: center;
     .menuToggleBtn {
       width: 32px;
       height: 24px;
       cursor: pointer;
       position: relative;
+      order: 3;
+      margin-left: 1rem;
       span {
         width: 100%;
         height: 3px;

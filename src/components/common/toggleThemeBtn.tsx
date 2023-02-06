@@ -17,6 +17,7 @@ const ToggleThemeBtn = ({ themeToggler }: { themeToggler: () => void }) => {
 
 const ToggleThemeBtnBlock = styled.div`
   width: 3.5rem;
+  min-width: 3.5rem;
   cursor: pointer;
   border: 1px solid ${({ theme }) => theme.mode.mainColor};
   border-radius: 3rem;
