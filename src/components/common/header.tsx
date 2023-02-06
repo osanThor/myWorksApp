@@ -1,26 +1,28 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
 import { media } from '../../../styles/theme';
 import { Logo } from '../../assets/images';
 import { useThemeContext } from '../../contexts/theme.context';
-import ToggleThemeBtn from './toggleThemeBtn';
 
-const Header = ({ themeToggler }: { themeToggler: () => void }) => {
+const Header = ({ children }: { children: React.ReactNode }) => {
   const theme = useThemeContext();
 
   return (
     <>
       <HeaderBlock>
         <div className="logo">
-          <Image
-            src={theme === 'light' ? Logo[0] : Logo[2]}
-            alt="main logo"
-            layout="fill"
-            sizes=""
-          />
+          <Link href="/">
+            <Image
+              src={theme === 'light' ? Logo[0] : Logo[2]}
+              alt="main logo"
+              layout="fill"
+              sizes=""
+            />
+          </Link>
         </div>
-        <ToggleThemeBtn themeToggler={themeToggler} />
+        {children}
       </HeaderBlock>
       <Spacer />
     </>
