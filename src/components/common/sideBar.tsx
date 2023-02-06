@@ -1,10 +1,16 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { media } from '../../../styles/theme';
 
 const SideBar = ({ children }: { children: React.ReactNode }) => {
+  const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [router]);
   return (
     <SideBarBlock>
       <div
