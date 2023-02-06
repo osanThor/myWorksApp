@@ -1,5 +1,4 @@
 import React from 'react';
-import colors from '../../assets/colors';
 import AboutDescrition from '../../components/about/aboutDescrition';
 import AboutMeImage from '../../components/about/aboutMeImage';
 import ResumeContent from '../../components/about/resumeContent';

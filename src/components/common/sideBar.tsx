@@ -1,10 +1,16 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { media } from '../../../styles/theme';
 
 const SideBar = ({ children }: { children: React.ReactNode }) => {
+  const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [router]);
   return (
     <SideBarBlock>
       <div
@@ -34,8 +40,9 @@ const SideBar = ({ children }: { children: React.ReactNode }) => {
             </Link>
           </li>
         </ul>
-        {children}
+        <span className="spacer" />
       </div>
+      {children}
     </SideBarBlock>
   );
 };
@@ -43,11 +50,15 @@ const SideBar = ({ children }: { children: React.ReactNode }) => {
 const SideBarBlock = styled.div`
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   .menuWrap {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 100%;
     .gnb {
       width: 100%;
       li {
@@ -91,13 +102,15 @@ const SideBarBlock = styled.div`
 
   ${media.tablet} {
     width: auto;
-    display: flex;
+    flex-direction: row;
     align-items: center;
     .menuToggleBtn {
-      width: 32px;
+      width: 30px;
       height: 24px;
       cursor: pointer;
       position: relative;
+      order: 3;
+      margin-left: 1rem;
       span {
         width: 100%;
         height: 3px;
@@ -119,13 +132,13 @@ const SideBarBlock = styled.div`
       &.on {
         span {
           &:nth-child(1) {
-            transform: scale(1.1) rotate(45deg) translate(0, 14px);
+            transform: scale(1.1) rotate(45deg) translate(7px, 6px);
           }
           &:nth-child(2) {
             display: none;
           }
           &:nth-child(3) {
-            transform: scale(1.1) rotate(-47deg) translate(2px, -15px);
+            transform: scale(1.1) rotate(-47deg) translate(10px, -8px);
           }
         }
       }
