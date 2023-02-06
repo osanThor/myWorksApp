@@ -6,7 +6,7 @@ import { Logo } from '../../assets/images';
 import { useThemeContext } from '../../contexts/theme.context';
 import ToggleThemeBtn from './toggleThemeBtn';
 
-const Header = ({ themeToggler }: { themeToggler: () => void }) => {
+const Header = ({ children }: { children: React.ReactNode }) => {
   const theme = useThemeContext();
 
   return (
@@ -20,7 +20,7 @@ const Header = ({ themeToggler }: { themeToggler: () => void }) => {
             sizes=""
           />
         </div>
-        <ToggleThemeBtn themeToggler={themeToggler} />
+        {children}
       </HeaderBlock>
       <Spacer />
     </>
