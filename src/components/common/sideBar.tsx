@@ -99,7 +99,7 @@ const SideBarBlock = styled.div`
     flex-direction: row;
     align-items: center;
     .menuToggleBtn {
-      width: 32px;
+      width: 30px;
       height: 24px;
       cursor: pointer;
       position: relative;
@@ -126,13 +126,13 @@ const SideBarBlock = styled.div`
       &.on {
         span {
           &:nth-child(1) {
-            transform: scale(1.1) rotate(45deg) translate(0, 14px);
+            transform: scale(1.1) rotate(45deg) translate(7px, 6px);
           }
           &:nth-child(2) {
             display: none;
           }
           &:nth-child(3) {
-            transform: scale(1.1) rotate(-47deg) translate(2px, -15px);
+            transform: scale(1.1) rotate(-47deg) translate(10px, -8px);
           }
         }
       }

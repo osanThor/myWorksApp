@@ -1,5 +1,4 @@
 import React from 'react';
-import colors from '../../assets/colors';
 import Section from '../../components/common/section';
 import Effect from '../../components/intro/effect';
 import IntroDescript from '../../components/intro/introDescript';

@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { media } from '../../../styles/theme';
-import colors from '../../assets/colors';
 
 const Section = ({ children }: { children: React.ReactNode }) => {
   return <SectionBlock>{children}</SectionBlock>;

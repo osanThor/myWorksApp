@@ -7,6 +7,7 @@ import { PLogo } from '../../assets/images';
 import projects from '../../data/main_project.json';
 import ImageBox from '../common/imageBox';
 import colors from '../../assets/colors';
+import { useRouter } from 'next/router';
 
 interface ProjectProps {
   pj: {
@@ -20,6 +21,7 @@ interface ProjectProps {
 }
 
 const PortfolioList = () => {
+  const router = useRouter();
   const handleClick = () => {
     alert('준비중입니다.');
     return;
@@ -32,7 +34,7 @@ const PortfolioList = () => {
         ))}
       </div>
       <div className="btn_area">
-        <Button blue onClick={handleClick}>
+        <Button blue onClick={() => router.push('/works')}>
           더보기
         </Button>
       </div>
