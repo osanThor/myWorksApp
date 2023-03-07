@@ -2,9 +2,8 @@ import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
 import { media } from '../../../styles/theme';
-import colors from '../../assets/colors';
 import { Logo } from '../../assets/images';
-import Flex from '../../layout/flex';
+import Flex from './flex';
 
 const Footer = () => {
   return (

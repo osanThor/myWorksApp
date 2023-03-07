@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { media } from '../../styles/theme';
+import { media } from '../../../styles/theme';
 
 const Flex = ({ children }: { children: React.ReactNode }) => {
   return <FlexBlock>{children}</FlexBlock>;

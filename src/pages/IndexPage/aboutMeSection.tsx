@@ -4,7 +4,7 @@ import AboutMeImage from '../../components/about/aboutMeImage';
 import ResumeContent from '../../components/about/resumeContent';
 import Section from '../../components/common/section';
 import Title from '../../components/common/title';
-import Flex from '../../layout/flex';
+import Flex from '../../components/common/flex';
 
 const AboutMeSection = () => {
   return (
