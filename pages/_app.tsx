@@ -6,7 +6,6 @@ import { useState, useEffect } from 'react';
 import PageLoading from '../src/components/common/loading/pageLoading';
 
 export default function App({ Component, pageProps }: AppProps) {
-  const [firstLoading, setfirstLoading] = useState(false);
   const [pageLoading, setpageLoading] = useState(false);
 
   useEffect(() => {
