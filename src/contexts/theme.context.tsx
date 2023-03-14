@@ -15,9 +15,10 @@ export const CustomThemeProvider = ({
 
   useEffect(() => {
     setfirstLoading(true);
+
     setTimeout(() => {
       setfirstLoading(false);
-    }, 3000);
+    }, 2200);
   }, []);
 
   const [themeMode, themeToggler, mountedComponent] = useDarkMode();
