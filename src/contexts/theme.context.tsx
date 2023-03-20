@@ -1,15 +1,26 @@
 import { ThemeContext, ThemeProvider } from 'styled-components';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useDarkMode } from '../hooks/useDarkmode';
 import { darkTheme, lightTheme } from '../../styles/theme';
 import GlobalStyle from '../../styles/global-styles';
 import DefaultLayout from '../layout/defaultLayout';
+import PageLoading from '../components/common/loading/pageLoading';
 
 export const CustomThemeProvider = ({
   children,
 }: {
   children: React.ReactNode;
 }) => {
+  const [firstLoading, setfirstLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    setfirstLoading(true);
+
+    setTimeout(() => {
+      setfirstLoading(false);
+    }, 2200);
+  }, []);
+
   const [themeMode, themeToggler, mountedComponent] = useDarkMode();
   const theme =
     themeMode === 'light' ? { mode: lightTheme } : { mode: darkTheme };
@@ -19,6 +30,7 @@ export const CustomThemeProvider = ({
     <ThemeContext.Provider value={theme}>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
+        {firstLoading && <PageLoading />}
         <DefaultLayout themeToggler={themeToggler}>
           {''}
           {children}

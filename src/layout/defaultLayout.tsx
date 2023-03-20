@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { media } from '../../styles/theme';
 import Container from '../components/common/container';
 import Footer from '../components/common/footer';
-import Header from '../components/common/header';
 import HeaderContainer from '../containers/headerContainer';
 
 interface DefaultLayoutProps {
