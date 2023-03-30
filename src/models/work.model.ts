@@ -1,5 +1,5 @@
 import { InWork } from '../interface/in_work';
-import FirebaseAdmin from '../models/firebase_admin';
+import FirebaseAdmin from './firebase_admin';
 
 const WORK_COL = 'works';
 
