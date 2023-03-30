@@ -17,5 +17,17 @@ const add = async (req: NextApiRequest, res: NextApiResponse) => {
   res.status(500).json(addResult);
 };
 
-const WorkCtrl = { add };
+const getMain = async (req: NextApiRequest, res: NextApiResponse) => {
+  const { length } = req.query;
+  const convertLength = length === undefined ? '8' : length;
+  const lengthStr = Array.isArray(convertLength)
+    ? convertLength[0]
+    : convertLength;
+  const getMainRes = await WorkModel.getMain({
+    length: parseInt(lengthStr, 10),
+  });
+  return res.status(200).json(getMainRes);
+};
+
+const WorkCtrl = { add, getMain };
 export default WorkCtrl;
