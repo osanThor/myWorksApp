@@ -46,6 +46,11 @@ const WorkModal = ({
                     사용기술: <span>{work.skills}</span>
                   </div>
                 )}
+                {work.work && (
+                  <div className="work_con_row">
+                    주요 업무: <span>{work.work}</span>
+                  </div>
+                )}
                 <Button
                   href={work.link}
                   fullWidth
