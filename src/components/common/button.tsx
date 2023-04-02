@@ -7,7 +7,7 @@ import { media } from '../../../styles/theme';
 
 interface PropsType {
   fullWidth: string;
-  blue: string;
+  blue: boolean;
 }
 
 const Button = (props: any) => {
@@ -28,6 +28,10 @@ const buttonStyle = css`
   cursor: pointer;
   transition: all 0.2s;
   background: ${({ theme }) => theme.mode.bgColor};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
   &:hover {
     background-color: ${({ theme }) => theme.mode.pTxtColor};
     color: white;
@@ -67,9 +71,7 @@ const StyledButton = styled.button`
   ${buttonStyle}
 `;
 const StyledLink = styled(Link)`
-  a {
-    ${buttonStyle}
-  }
+  ${buttonStyle}
 `;
 
 export default Button;

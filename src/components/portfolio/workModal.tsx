@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import { AiOutlineClose } from 'react-icons/ai';
 import { InWork } from '../../interface/in_work';
+import ImageBox from '../common/imageBox';
+import { NoImage } from '../../assets/images';
+import Button from '../common/button';
 
 const WorkModal = ({
   close,
@@ -9,6 +12,7 @@ const WorkModal = ({
   close: () => void;
   work: InWork | null;
 }) => {
+  console.log(work?.link);
   return (
     <WorkModalBlock>
       <div className="modal_con">
@@ -19,11 +23,41 @@ const WorkModal = ({
           <>
             <div className="title_con">{work.projectName}</div>
             <div className="work_con">
-              <div className="work_con_row">작업기간: {work.period}</div>
+              <ImageBox
+                src={work.imageUrl ? work.imageUrl : NoImage}
+                alt={work.projectName}
+                width={1000}
+                height={400}
+              />
+              <div className="desc_con">
+                {work.description && (
+                  <div className="work_con_row">
+                    서비스 소개: <span>{work.description}</span>
+                  </div>
+                )}
+                {work.period && (
+                  <div className="work_con_row">
+                    작업기간: <span>{work.period}</span>
+                  </div>
+                )}
+                {work.skills && (
+                  <div className="work_con_row">
+                    사용기술: <span>{work.skills}</span>
+                  </div>
+                )}
+                <Button
+                  href={work.link}
+                  fullWidth
+                  blue={work.link}
+                  disabled={!work.link}
+                >
+                  {work.projectName} 바로가기
+                </Button>
+              </div>
             </div>
           </>
         ) : (
-          <div className="no_info">값이 없습니다.</div>
+          <div className="no_info">작업을 가져오는데 실패했습니다.</div>
         )}
       </div>
     </WorkModalBlock>
@@ -65,6 +99,32 @@ const WorkModalBlock = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+    .work_con {
+      img {
+        max-width: 100%;
+      }
+      .desc_con {
+        margin-top: 2rem;
+        & > .work_con_row + .work_con_row {
+          margin-top: 0.7rem;
+        }
+        .work_con_row {
+          font-size: 1.125rem;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+
+          span {
+            font-size: 1rem;
+            font-weight: normal;
+            margin-left: 0.7rem;
+          }
+        }
+        & > a {
+          margin-top: 1.5rem;
+        }
+      }
     }
   }
 `;

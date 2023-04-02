@@ -8,6 +8,23 @@ const nextConfig = {
     // !! WARN !!
     ignoreBuildErrors: true,
   },
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        port: '',
+        pathname: '/dynkqtrus/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'bit.ly',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
   reactStrictMode: true,
   swcMinify: true,
   publicRuntimeConfig: {
