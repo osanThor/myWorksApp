@@ -4,55 +4,63 @@
     "projectLogo": 0,
     "projectName": "bulit",
     "period": "1개월",
-    "bgColor": "#4a389b"
+    "bgColor": "#4a389b",
+    "category": "mainWorks"
   },
   {
     "id": 1,
     "projectLogo": 1,
     "projectName": "solmap",
     "period": "3개월",
-    "bgColor": "#ffffff"
+    "bgColor": "#ffffff",
+    "category": "mainWorks"
   },
   {
     "id": 2,
     "projectLogo": 2,
     "projectName": "sevenmood",
     "period": "1개월",
-    "bgColor": "#000001"
+    "bgColor": "#000001",
+    "category": "mainWorks"
   },
   {
     "id": 3,
     "projectLogo": 3,
     "projectName": "mintingbox",
     "period": "3개월",
-    "bgColor": "#ffb813"
+    "bgColor": "#ffb813",
+    "category": "mainWorks"
   },
   {
     "id": 4,
     "projectLogo": 4,
     "projectName": "taobaro",
     "period": "3개월",
-    "bgColor": "#ff5a24"
+    "bgColor": "#ff5a24",
+    "category": "mainWorks"
   },
   {
     "id": 5,
     "projectLogo": 5,
     "projectName": "metabuild",
     "period": "3개월",
-    "bgColor": "#ffefd2"
+    "bgColor": "#ffefd2",
+    "category": "mainWorks"
   },
   {
     "id": 6,
     "projectLogo": 6,
     "projectName": "indudoctor",
     "period": "진행중",
-    "bgColor": "#fff"
+    "bgColor": "#fff",
+    "category": "mainWorks"
   },
   {
     "id": 7,
     "projectLogo": 7,
     "projectName": "sogongja",
     "period": "진행중",
-    "bgColor": "#0b2de9"
+    "bgColor": "#0b2de9",
+    "category": "mainWorks"
   }
 ]

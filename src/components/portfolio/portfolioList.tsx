@@ -5,44 +5,30 @@ import Button from '../common/button';
 import { PLogo } from '../../assets/images';
 import ImageBox from '../common/imageBox';
 import colors from '../../assets/colors';
-import { useRouter } from 'next/router';
-
-type WorksProps = Array<{
-  projectLogo: number;
-  projectName: string;
-  period: string;
-  bgColor: string;
-}>;
+import { InWork, InWorksProps } from '../../interface/in_work';
 
 interface ProjectProps {
-  pj: {
-    projectLogo: number;
-    projectName: string;
-    period: string;
-    bgColor: string;
-  };
-  onClick: () => void;
+  pj: InWork;
+  onClick: (work: InWork) => void;
 }
 
 const PortfolioList = ({
   works,
   children,
   subTitle,
+  onClick,
 }: {
-  works: WorksProps;
+  works: InWorksProps;
   children?: React.ReactNode;
   subTitle?: React.ReactNode;
+  onClick: (work: InWork) => void;
 }) => {
-  const handleClick = () => {
-    alert('준비중입니다.');
-    return;
-  };
   return (
     <PortfolioListBlock>
       {subTitle}
       <div className="project_list">
         {works?.map((pj) => (
-          <ProjectItem key={pj?.projectLogo} pj={pj} onClick={handleClick} />
+          <ProjectItem key={pj?.projectLogo} pj={pj} onClick={onClick} />
         ))}
       </div>
       {children}
@@ -55,7 +41,7 @@ const ProjectItem = ({ pj, onClick }: ProjectProps) => {
     <div
       className="item"
       style={{ backgroundColor: pj?.bgColor }}
-      onClick={onClick}
+      onClick={() => onClick(pj)}
     >
       <div className="hover_effct" />
       <div className="hover_effct" />

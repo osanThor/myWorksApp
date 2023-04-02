@@ -2,6 +2,8 @@ import { InWork } from '../interface/in_work';
 import FirebaseAdmin from './firebase_admin';
 
 const WORK_COL = 'works';
+const MAIN_COL = 'mainWorks';
+const SUB_COL = 'mainWorks';
 
 const { Firestore } = FirebaseAdmin.getInstance();
 
@@ -12,15 +14,29 @@ const add = async ({
   projectName,
   period,
   bgColor,
+  category,
 }: InWork): Promise<addResult> => {
+  if (!category) {
+    return { result: false, message: '카테고리가 없습니다.' };
+  }
   try {
     const addResult = await Firestore.runTransaction(async (transaction) => {
-      const workRef = FirebaseAdmin.getInstance()
-        .Firestore.collection(WORK_COL)
-        .doc(projectName);
+      const docName =
+        category === 'mainWorks'
+          ? MAIN_COL
+          : category === 'subWorks'
+          ? SUB_COL
+          : '';
+      const worksRef = Firestore.collection(WORK_COL).doc(docName);
+      const worksDoc = await transaction.get(worksRef);
+      if (worksDoc.exists === false) {
+        // 없는 컬렉션
+        return false;
+      }
+      const workRef = worksRef.collection(docName).doc(projectName);
       const workDoc = await transaction.get(workRef);
       if (workDoc.exists) {
-        // 이미 추가된 상태
+        // 이미 있는 프로젝트
         return false;
       }
       const addData = {
@@ -28,12 +44,13 @@ const add = async ({
         projectName,
         period,
         bgColor,
+        category,
       };
       await transaction.set(workRef, addData);
       return true;
     });
     if (addResult === false) {
-      return { result: true, message: 'SUCCESS' };
+      return { result: false, message: 'FAILURE' };
     }
     return { result: true, message: 'SUCCESS' };
   } catch (e) {
