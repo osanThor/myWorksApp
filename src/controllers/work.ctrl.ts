@@ -9,7 +9,8 @@ const add = async (req: NextApiRequest, res: NextApiResponse) => {
     projectLogo === undefined ||
     !projectName ||
     !period ||
-    !bgColor
+    !bgColor ||
+    !category
   ) {
     throw new BadReqError('값을 모두 채워주세요');
   }

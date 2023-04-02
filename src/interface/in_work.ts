@@ -6,8 +6,8 @@ export interface InWork {
   category: string;
   imageUrl?: string;
   link?: string;
-  description: string;
-  skills: string;
+  description?: string;
+  skills?: string;
 }
 
 export type InWorksProps = Array<InWork>;
