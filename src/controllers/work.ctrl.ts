@@ -3,14 +3,28 @@ import WorkModel from '../models/work.model';
 import BadReqError from './error/bad_request_error';
 
 const add = async (req: NextApiRequest, res: NextApiResponse) => {
-  const { projectLogo, projectName, period, bgColor, category } = req.body;
+  const {
+    projectLogo,
+    projectName,
+    period,
+    bgColor,
+    category,
+    link,
+    description,
+    skills,
+    work,
+  } = req.body;
   if (
     projectLogo === null ||
     projectLogo === undefined ||
     !projectName ||
     !period ||
     !bgColor ||
-    !category
+    !category ||
+    link === undefined ||
+    !description ||
+    !skills ||
+    !work
   ) {
     throw new BadReqError('값을 모두 채워주세요');
   }
@@ -20,6 +34,10 @@ const add = async (req: NextApiRequest, res: NextApiResponse) => {
     period,
     bgColor,
     category,
+    link,
+    description,
+    skills,
+    work,
   });
   if (addResult.result) return res.status(201).json(addResult);
   res.status(500).json(addResult);

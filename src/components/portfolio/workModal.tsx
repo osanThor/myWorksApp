@@ -125,7 +125,9 @@ const WorkModalBlock = styled.div`
             color: ${({ theme }) => theme.mode.textColor};
           }
         }
-        & > a {
+        & > a,
+        & > button {
+          min-height: 50px;
           margin-top: 1.5rem;
         }
       }
@@ -153,7 +155,8 @@ const WorkModalBlock = styled.div`
               color: ${({ theme }) => theme.mode.textColor};
             }
           }
-          & > a {
+          & > a,
+          & > button {
             margin-top: 1.5rem;
           }
         }

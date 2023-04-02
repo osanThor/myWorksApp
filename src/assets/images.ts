@@ -36,6 +36,7 @@ import PLogo05 from 'public/images/portfolio/p_logo05.png';
 import PLogo06 from 'public/images/portfolio/p_logo06.png';
 import PLogo07 from 'public/images/portfolio/p_logo07.png';
 import PLogo08 from 'public/images/portfolio/p_logo08.png';
+import PLogo09 from 'public/images/portfolio/p_logo09.png';
 
 export const Logo = [LogoImage, LogoWhiteImage, LogoRedImage];
 export const Profile = [Profile1, Profile2];
@@ -64,5 +65,6 @@ export const PLogo = [
   PLogo06,
   PLogo07,
   PLogo08,
+  PLogo09,
 ];
 export const NoImage = NoImageIcon;
