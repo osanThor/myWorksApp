@@ -16,7 +16,7 @@ const WorksPage: NextPage<Props> = () => {
   const [work, setWork] = useState<InWork | null>(null);
   const getMainList = async () => {
     try {
-      const res = await axios.get('/api/work.getList');
+      const res = await axios.get('/api/work.getList?category=mainWorks');
       setWorks(res.data);
     } catch (err) {
       console.error(err);

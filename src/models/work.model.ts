@@ -59,9 +59,26 @@ const add = async ({
   }
 };
 
-const getMain = async ({ length = 8 }: { length: number }) => {
+const getMain = async ({
+  category,
+  length = 8,
+}: {
+  category: string;
+  length: number;
+}) => {
+  const docName =
+    category === 'mainWorks'
+      ? MAIN_COL
+      : category === 'subWorks'
+      ? SUB_COL
+      : '';
   const listData = await Firestore.runTransaction(async (transaction) => {
-    const workCol = Firestore.collection(WORK_COL)
+    const worksRef = Firestore.collection(WORK_COL).doc(docName);
+    if (!worksRef) {
+      return false;
+    }
+    const workCol = worksRef
+      .collection(docName)
       .orderBy('projectLogo', 'desc')
       .limit(length);
     const workColDoc = await transaction.get(workCol);
@@ -76,14 +93,27 @@ const getMain = async ({ length = 8 }: { length: number }) => {
 };
 
 const getList = async ({
+  category,
   page = 1,
   length = 8,
 }: {
-  page?: number;
-  length?: number;
+  category: string;
+  page: number;
+  length: number;
 }) => {
+  const docName =
+    category === 'mainWorks'
+      ? MAIN_COL
+      : category === 'subWorks'
+      ? SUB_COL
+      : '';
   const listData = await Firestore.runTransaction(async (transaction) => {
-    const workCol = Firestore.collection(WORK_COL)
+    const worksRef = Firestore.collection(WORK_COL).doc(docName);
+    if (!worksRef) {
+      return false;
+    }
+    const workCol = worksRef
+      .collection(docName)
       .orderBy('projectLogo', 'desc')
       .limit(length);
     const workColDoc = await transaction.get(workCol);
