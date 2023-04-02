@@ -27,17 +27,19 @@ interface ProjectProps {
 const PortfolioList = ({
   works,
   children,
+  subTitle,
 }: {
   works: WorksProps;
   children?: React.ReactNode;
+  subTitle?: React.ReactNode;
 }) => {
-  const router = useRouter();
   const handleClick = () => {
     alert('준비중입니다.');
     return;
   };
   return (
     <PortfolioListBlock>
+      {subTitle}
       <div className="project_list">
         {works?.map((pj) => (
           <ProjectItem key={pj?.projectLogo} pj={pj} onClick={handleClick} />

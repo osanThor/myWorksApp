@@ -24,8 +24,7 @@ const WorksPage: NextPage<Props> = () => {
   return (
     <Section>
       <Title title={'WORKS'} />
-      <SubTitle title="MAIN WORKS" />
-      <PortfolioList works={works} />
+      <PortfolioList works={works} subTitle={<SubTitle title="MAIN WORKS" />} />
     </Section>
   );
 };

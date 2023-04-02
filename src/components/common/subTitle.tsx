@@ -16,7 +16,7 @@ const SubTitle = ({ title }: { title: string }) => {
 const SubTitleBlock = styled.div`
   width: 100%;
   position: relative;
-  margin-top: 1rem;
+  margin: 0.75rem 0;
 
   .title {
     padding: 2.5rem 2rem;
@@ -55,7 +55,9 @@ const SubTitleBlock = styled.div`
 
   ${media.tablet} {
     .title {
-      padding: 1rem 0.5rem;
+      padding: 2rem 1rem;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
     }
   }
 `;
