@@ -1,6 +1,7 @@
 import LogoImage from 'public/logo.png';
 import LogoWhiteImage from 'public/images/common/logo_whi.png';
 import LogoRedImage from 'public/images/common/logo_red.png';
+import NoImageIcon from 'public/images/common/noImage.png';
 import Profile1 from 'public/images/about/profile1.jpeg';
 import Profile2 from 'public/images/about/profile2.jpeg';
 import Javascript from 'public/images/skills/javascript.png';
@@ -64,3 +65,4 @@ export const PLogo = [
   PLogo07,
   PLogo08,
 ];
+export const NoImage = NoImageIcon;

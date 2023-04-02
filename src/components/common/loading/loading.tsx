@@ -1,8 +1,8 @@
 import styled, { keyframes } from 'styled-components';
 
-const PageLoading = () => {
+const Loading = () => {
   return (
-    <PageLoadingBlock>
+    <LoadingBlock>
       <div id="load">
         <div>G</div>
         <div>N</div>
@@ -12,7 +12,7 @@ const PageLoading = () => {
         <div>O</div>
         <div>L</div>
       </div>
-    </PageLoadingBlock>
+    </LoadingBlock>
   );
 };
 
@@ -47,7 +47,7 @@ const Move = keyframes`
 	}
 `;
 
-const PageLoadingBlock = styled.div`
+const LoadingBlock = styled.div`
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -56,7 +56,7 @@ const PageLoadingBlock = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 989;
+  z-index: 999;
   background-color: ${({ theme }) => theme.mode.bgColor};
 
   #load {
@@ -104,4 +104,4 @@ const PageLoadingBlock = styled.div`
   }
 `;
 
-export default PageLoading;
+export default Loading;

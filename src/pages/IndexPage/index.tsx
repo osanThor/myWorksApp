@@ -1,6 +1,5 @@
 import { NextPage } from 'next';
 import React from 'react';
-import DefaultLayout from '../../layout/defaultLayout';
 import AboutMeSection from './aboutMeSection';
 import IntroSection from './introSection';
 import PortfolioSection from './portfolioSection';
