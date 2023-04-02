@@ -8,6 +8,7 @@ export interface InWork {
   link?: string;
   description?: string;
   skills?: string;
+  work?: string;
 }
 
 export type InWorksProps = Array<InWork>;

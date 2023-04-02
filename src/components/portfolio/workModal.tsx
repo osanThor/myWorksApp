@@ -4,6 +4,7 @@ import { InWork } from '../../interface/in_work';
 import ImageBox from '../common/imageBox';
 import { NoImage } from '../../assets/images';
 import Button from '../common/button';
+import { media } from '../../../styles/theme';
 
 const WorkModal = ({
   close,
@@ -43,6 +44,11 @@ const WorkModal = ({
                 {work.skills && (
                   <div className="work_con_row">
                     사용기술: <span>{work.skills}</span>
+                  </div>
+                )}
+                {work.work && (
+                  <div className="work_con_row">
+                    주요 업무: <span>{work.work}</span>
                   </div>
                 )}
                 <Button
@@ -114,15 +120,50 @@ const WorkModalBlock = styled.div`
           font-weight: 600;
           display: flex;
           align-items: center;
+          color: ${({ theme }) => theme.mode.mainColor};
+          word-break: keep-all;
 
           span {
             font-size: 1rem;
             font-weight: normal;
             margin-left: 0.7rem;
+            color: ${({ theme }) => theme.mode.textColor};
           }
         }
-        & > a {
+        & > a,
+        & > button {
+          min-height: 50px;
           margin-top: 1.5rem;
+        }
+      }
+    }
+  }
+  ${media.tablet} {
+    .modal_con {
+      .work_con {
+        .desc_con {
+          margin-top: 2rem;
+          & > .work_con_row + .work_con_row {
+            margin-top: 1rem;
+          }
+          .work_con_row {
+            font-size: 1.125rem;
+            font-weight: 600;
+            flex-direction: column;
+            align-items: flex-start;
+
+            span {
+              font-size: 1rem;
+              font-weight: normal;
+              margin-left: 0;
+              margin-top: 0.5em;
+              color: ${({ theme }) => theme.mode.textColor};
+            }
+          }
+          & > a,
+          & > button {
+            margin-top: 1.5rem;
+          }
         }
       }
     }

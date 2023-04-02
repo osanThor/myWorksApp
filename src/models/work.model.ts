@@ -15,6 +15,10 @@ const add = async ({
   period,
   bgColor,
   category,
+  link,
+  description,
+  skills,
+  work,
 }: InWork): Promise<addResult> => {
   if (!category) {
     return { result: false, message: '카테고리가 없습니다.' };
@@ -45,6 +49,10 @@ const add = async ({
         period,
         bgColor,
         category,
+        link,
+        description,
+        skills,
+        work,
       };
       await transaction.set(workRef, addData);
       return true;
@@ -112,10 +120,7 @@ const getList = async ({
     if (!worksRef) {
       return false;
     }
-    const workCol = worksRef
-      .collection(docName)
-      .orderBy('projectLogo', 'desc')
-      .limit(length);
+    const workCol = worksRef.collection(docName).orderBy('projectLogo', 'desc');
     const workColDoc = await transaction.get(workCol);
     const data = workColDoc.docs.map((mv) => {
       const docData = mv.data();

@@ -25,11 +25,6 @@ const SideBar = ({ children }: { children: React.ReactNode }) => {
         <span className="spacer" />
         <ul className="gnb">
           <li>
-            <Link href="/about">
-              <span className="txt">ABOUT</span>
-            </Link>
-          </li>
-          <li>
             <Link href="/works">
               <span className="txt">WORKS</span>
             </Link>
