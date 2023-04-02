@@ -24,7 +24,13 @@ interface ProjectProps {
   onClick: () => void;
 }
 
-const PortfolioList = ({ works }: { works: WorksProps }) => {
+const PortfolioList = ({
+  works,
+  children,
+}: {
+  works: WorksProps;
+  children?: React.ReactNode;
+}) => {
   const router = useRouter();
   const handleClick = () => {
     alert('준비중입니다.');
@@ -37,11 +43,7 @@ const PortfolioList = ({ works }: { works: WorksProps }) => {
           <ProjectItem key={pj?.projectLogo} pj={pj} onClick={handleClick} />
         ))}
       </div>
-      <div className="btn_area">
-        <Button blue onClick={() => router.push('/works')}>
-          더보기
-        </Button>
-      </div>
+      {children}
     </PortfolioListBlock>
   );
 };

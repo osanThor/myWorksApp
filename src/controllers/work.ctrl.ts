@@ -29,5 +29,20 @@ const getMain = async (req: NextApiRequest, res: NextApiResponse) => {
   return res.status(200).json(getMainRes);
 };
 
-const WorkCtrl = { add, getMain };
+const getList = async (req: NextApiRequest, res: NextApiResponse) => {
+  const { length, page } = req.query;
+  const convertPage = page === undefined ? '8' : page;
+  const convertLength = length === undefined ? '8' : length;
+  const pageStr = Array.isArray(convertPage) ? convertPage[0] : convertPage;
+  const lengthStr = Array.isArray(convertLength)
+    ? convertLength[0]
+    : convertLength;
+  const getListRes = await WorkModel.getList({
+    page: parseInt(pageStr, 10),
+    length: parseInt(lengthStr, 10),
+  });
+  return res.status(200).json(getListRes);
+};
+
+const WorkCtrl = { add, getMain, getList };
 export default WorkCtrl;

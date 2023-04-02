@@ -4,7 +4,7 @@ import { useDarkMode } from '../hooks/useDarkmode';
 import { darkTheme, lightTheme } from '../../styles/theme';
 import GlobalStyle from '../../styles/global-styles';
 import DefaultLayout from '../layout/defaultLayout';
-import PageLoading from '../components/common/loading/pageLoading';
+import Loading from '../components/common/loading/loading';
 
 export const CustomThemeProvider = ({
   children,
@@ -15,7 +15,6 @@ export const CustomThemeProvider = ({
 
   useEffect(() => {
     setfirstLoading(true);
-
     setTimeout(() => {
       setfirstLoading(false);
     }, 2200);
@@ -30,11 +29,8 @@ export const CustomThemeProvider = ({
     <ThemeContext.Provider value={theme}>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        {firstLoading && <PageLoading />}
-        <DefaultLayout themeToggler={themeToggler}>
-          {''}
-          {children}
-        </DefaultLayout>
+        {firstLoading && <Loading />}
+        <DefaultLayout themeToggler={themeToggler}>{children}</DefaultLayout>
       </ThemeProvider>
     </ThemeContext.Provider>
   );

@@ -1,4 +1,3 @@
-import CustomServerError from '../controllers/error/custom_server_error';
 import { InWork } from '../interface/in_work';
 import FirebaseAdmin from './firebase_admin';
 
@@ -46,7 +45,29 @@ const add = async ({
 const getMain = async ({ length = 8 }: { length: number }) => {
   const listData = await Firestore.runTransaction(async (transaction) => {
     const workCol = Firestore.collection(WORK_COL)
-      .orderBy('projectLogo')
+      .orderBy('projectLogo', 'desc')
+      .limit(length);
+    const workColDoc = await transaction.get(workCol);
+    const data = workColDoc.docs.map((mv) => {
+      const docData = mv.data();
+      const returnData = { ...docData };
+      return returnData;
+    });
+    return data;
+  });
+  return listData;
+};
+
+const getList = async ({
+  page = 1,
+  length = 8,
+}: {
+  page?: number;
+  length?: number;
+}) => {
+  const listData = await Firestore.runTransaction(async (transaction) => {
+    const workCol = Firestore.collection(WORK_COL)
+      .orderBy('projectLogo', 'desc')
       .limit(length);
     const workColDoc = await transaction.get(workCol);
     const data = workColDoc.docs.map((mv) => {
@@ -62,6 +83,7 @@ const getMain = async ({ length = 8 }: { length: number }) => {
 const WorkModel = {
   add,
   getMain,
+  getList,
 };
 
 export default WorkModel;
