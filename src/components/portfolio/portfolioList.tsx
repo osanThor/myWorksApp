@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { media } from '../../../styles/theme';
 import Button from '../common/button';
-import Image from 'next/image';
 import { PLogo } from '../../assets/images';
-import projects from '../../data/main_project.json';
 import ImageBox from '../common/imageBox';
 import colors from '../../assets/colors';
 import { useRouter } from 'next/router';
 
+type WorksProps = Array<{
+  projectLogo: number;
+  projectName: string;
+  period: string;
+  bgColor: string;
+}>;
+
 interface ProjectProps {
   pj: {
-    id: number;
     projectLogo: number;
     projectName: string;
     period: string;
@@ -20,7 +24,7 @@ interface ProjectProps {
   onClick: () => void;
 }
 
-const PortfolioList = () => {
+const PortfolioList = ({ works }: { works: WorksProps }) => {
   const router = useRouter();
   const handleClick = () => {
     alert('준비중입니다.');
@@ -29,8 +33,8 @@ const PortfolioList = () => {
   return (
     <PortfolioListBlock>
       <div className="project_list">
-        {projects?.map((pj) => (
-          <ProjectItem key={pj?.id} pj={pj} onClick={handleClick} />
+        {works?.map((pj) => (
+          <ProjectItem key={pj?.projectLogo} pj={pj} onClick={handleClick} />
         ))}
       </div>
       <div className="btn_area">
