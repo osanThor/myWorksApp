@@ -2,6 +2,7 @@ import axios from 'axios';
 import { NextPage } from 'next';
 import React, { useEffect, useState } from 'react';
 import Section from '../../components/common/section';
+import SubTitle from '../../components/common/subTitle';
 import Title from '../../components/common/title';
 import PortfolioList from '../../components/portfolio/portfolioList';
 
@@ -23,7 +24,7 @@ const WorksPage: NextPage<Props> = () => {
   return (
     <Section>
       <Title title={'WORKS'} />
-      <div className="">MAIN WORKS</div>
+      <SubTitle title="MAIN WORKS" />
       <PortfolioList works={works} />
     </Section>
   );
