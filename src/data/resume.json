@@ -1,5 +1,9 @@
 [
-  { "id": 1, "resumeEvent": "수원대 미술대학 입학", "dataTime": "2015.03" },
+  {
+    "id": 1,
+    "resumeEvent": "수원대 미술대학 서양화과 입학",
+    "dataTime": "2015.03"
+  },
   {
     "id": 2,
     "resumeEvent": "대한민국 육군 입대 및 전역",

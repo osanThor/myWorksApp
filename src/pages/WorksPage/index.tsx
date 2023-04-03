@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { NextPage } from 'next';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Section from '../../components/common/section';
 import SubTitle from '../../components/common/subTitle';
 import Title from '../../components/common/title';
@@ -36,7 +36,7 @@ const WorksPage: NextPage<Props> = () => {
   return (
     <>
       <Section>
-        <Title title={'WORKS'} />
+        <Title title={'WORKS'} mt={2} />
         <PortfolioList
           works={works}
           subTitle={<SubTitle title="MAIN WORKS" />}

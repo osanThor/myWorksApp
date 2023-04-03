@@ -85,6 +85,7 @@ const WorkModalBlock = styled.div`
     width: calc(100% - 32px);
     max-width: 800px;
     min-height: 300px;
+    max-height: 90vh;
     background-color: ${({ theme }) => theme.mode.bgColor};
     color: ${({ theme }) => theme.mode.textColor};
     padding: 1.5em 2em;
@@ -107,6 +108,8 @@ const WorkModalBlock = styled.div`
       align-items: center;
     }
     .work_con {
+      flex: 1;
+      overflow-y: auto;
       img {
         max-width: 100%;
       }
