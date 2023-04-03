@@ -1,29 +1,23 @@
-import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import { media } from '../../../styles/theme';
+import colors from '../../assets/colors';
 
 const Row = ({
   label,
   required,
-  placeholder,
+  children,
 }: {
   label: string;
   required?: boolean;
-  placeholder?: string;
+  children: React.ReactNode;
 }) => {
-  const inputRef = useRef<HTMLInputElement>(null);
-  useEffect(() => {
-    if (!inputRef.current) return;
-  }, [inputRef]);
   return (
     <RowBlock>
       <label>
         {label}
         {required && <span className="req">*</span>}
       </label>
-      <StyledInput
-        ref={inputRef}
-        placeholder={placeholder ? placeholder : ''}
-      />
+      {children}
     </RowBlock>
   );
 };
@@ -31,12 +25,12 @@ const Row = ({
 const RowBlock = styled.div`
   width: 100%;
   display: flex;
-  align-items: center;
   padding: 0 1rem;
   & + & {
     margin-top: 1rem;
   }
   label {
+    line-height: 50px;
     min-width: 100px;
     margin-right: 0.7em;
     font-size: 1.125rem;
@@ -48,21 +42,62 @@ const RowBlock = styled.div`
       margin-left: 0.2em;
     }
   }
+
+  ${media.tablet} {
+    padding: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    label {
+      line-height: 3rem;
+    }
+  }
 `;
 
-const StyledInput = styled.input`
+export const StyledInput = styled.input`
   flex: 1;
-  height: 50px;
+  min-height: 50px;
   border: none;
   border-bottom: 1px solid ${({ theme }) => theme.mode.pTxtColor};
   background-color: ${({ theme }) => theme.mode.bgColor};
+  color: ${({ theme }) => theme.mode.textColor};
   border-radius: 0;
   transition: all 0.2s;
-  padding: 0.2em 0.3rem;
-
+  padding: 1em;
+  font-size: 1rem;
+  &::placeholder {
+    font-size: 0.875rem;
+    color: ${colors.gray};
+  }
   &:focus {
     outline: none;
     border-bottom: 1px solid ${({ theme }) => theme.mode.mainColor};
+  }
+  ${media.tablet} {
+    width: 100%;
+  }
+`;
+export const StyledTextarea = styled.textarea`
+  flex: 1;
+  min-height: 100px;
+  border: none;
+  border-bottom: 1px solid ${({ theme }) => theme.mode.pTxtColor};
+  background-color: ${({ theme }) => theme.mode.bgColor};
+  color: ${({ theme }) => theme.mode.textColor};
+  border-radius: 0;
+  transition: all 0.2s;
+  padding: 1em;
+  font-size: 1rem;
+  resize: none;
+  &::placeholder {
+    font-size: 0.875rem;
+    color: ${colors.gray};
+  }
+  &:focus {
+    outline: none;
+    border-bottom: 1px solid ${({ theme }) => theme.mode.mainColor};
+  }
+  ${media.tablet} {
+    width: 100%;
   }
 `;
 
