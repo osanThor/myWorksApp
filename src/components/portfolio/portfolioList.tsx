@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { media } from '../../../styles/theme';
-import Button from '../common/button';
 import { PLogo } from '../../assets/images';
 import ImageBox from '../common/imageBox';
 import colors from '../../assets/colors';
@@ -63,6 +61,7 @@ const PortfolioListBlock = styled.div`
   margin: 2rem 0;
   padding: 2rem;
   position: relative;
+  flex: 1;
   .project_list {
     width: 100%;
     display: flex;

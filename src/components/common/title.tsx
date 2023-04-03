@@ -1,10 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { media } from '../../../styles/theme';
 import colors from '../../assets/colors';
 import Observer from '../../utils/observer';
 
-const Title = ({ title }: { title: string }) => {
+interface Props {
+  title: string;
+  mt?: number;
+}
+
+const Title = (props: Props) => {
   const targetRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState<boolean>(false);
 
@@ -13,9 +18,9 @@ const Title = ({ title }: { title: string }) => {
   }, [targetRef]);
 
   return (
-    <TitleBlock>
+    <TitleBlock {...props}>
       <div className={visible ? 'title on' : 'title'} ref={targetRef}>
-        <span>{title}</span>
+        <span>{props.title}</span>
       </div>
     </TitleBlock>
   );
@@ -34,6 +39,12 @@ const ExpandRev = keyframes`
 const TitleBlock = styled.div`
   width: 100%;
   position: relative;
+
+  ${(props: Props) =>
+    props.mt &&
+    css`
+      margin-top: ${props.mt * 8}px;
+    `}
 
   .title {
     padding: 2.5rem 2rem;
