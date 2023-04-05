@@ -27,8 +27,6 @@ const WorkModal = ({
               <ImageBox
                 src={work.imageUrl ? work.imageUrl : NoImage}
                 alt={work.projectName}
-                width={1000}
-                height={400}
               />
               <div className="desc_con">
                 {work.description && (

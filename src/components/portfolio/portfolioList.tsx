@@ -46,12 +46,7 @@ const ProjectItem = ({ pj, onClick }: ProjectProps) => {
       <div className="hover_txt">
         <span className="project_name">{pj?.projectName}</span>
       </div>
-      <ImageBox
-        src={PLogo[pj?.projectLogo]}
-        alt={pj?.projectName}
-        width={150}
-        height={undefined}
-      />
+      <ImageBox src={pj.logoUrl} alt={pj?.projectName} isLogo />
     </div>
   );
 };
