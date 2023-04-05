@@ -1,16 +1,15 @@
-import { InWork } from '../interface/in_work';
+import { InWork, InWorksColProps } from '../interface/in_work';
 import FirebaseAdmin from './firebase_admin';
 
 const WORK_COL = 'works';
 const MAIN_COL = 'mainWorks';
-const SUB_COL = 'mainWorks';
+const SUB_COL = 'subWorks';
 
 const { Firestore } = FirebaseAdmin.getInstance();
 
 type addResult = { result: boolean; message: string };
 
 const add = async ({
-  projectLogo,
   projectName,
   period,
   bgColor,
@@ -19,11 +18,11 @@ const add = async ({
   description,
   skills,
   work,
+  logoUrl,
+  imageUrl,
 }: InWork): Promise<addResult> => {
-  if (!category) {
-    return { result: false, message: '카테고리가 없습니다.' };
-  }
   try {
+    let worksCount = 1;
     const addResult = await Firestore.runTransaction(async (transaction) => {
       const docName =
         category === 'mainWorks'
@@ -37,6 +36,10 @@ const add = async ({
         // 없는 컬렉션
         return false;
       }
+      const worksInfo = worksDoc.data() as InWorksColProps;
+      if (worksInfo.worksCount !== undefined) {
+        worksCount = worksInfo.worksCount;
+      }
       const workRef = worksRef.collection(docName).doc(projectName);
       const workDoc = await transaction.get(workRef);
       if (workDoc.exists) {
@@ -44,7 +47,7 @@ const add = async ({
         return false;
       }
       const addData = {
-        projectLogo,
+        projectLogo: worksCount,
         projectName,
         period,
         bgColor,
@@ -53,8 +56,11 @@ const add = async ({
         description,
         skills,
         work,
+        logoUrl,
+        imageUrl,
       };
       await transaction.set(workRef, addData);
+      await transaction.update(worksRef, { worksCount: worksCount + 1 });
       return true;
     });
     if (addResult === false) {

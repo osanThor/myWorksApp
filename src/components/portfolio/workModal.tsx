@@ -27,8 +27,6 @@ const WorkModal = ({
               <ImageBox
                 src={work.imageUrl ? work.imageUrl : NoImage}
                 alt={work.projectName}
-                width={1000}
-                height={400}
               />
               <div className="desc_con">
                 {work.description && (
@@ -110,6 +108,7 @@ const WorkModalBlock = styled.div`
     .work_con {
       flex: 1;
       overflow-y: auto;
+      padding-bottom: 1rem;
       img {
         max-width: 100%;
       }
