@@ -1,5 +1,5 @@
 export interface InWork {
-  projectLogo: number;
+  projectLogo?: number;
   projectName: string;
   period: string;
   bgColor: string;
@@ -9,6 +9,13 @@ export interface InWork {
   description?: string;
   skills?: string;
   work?: string;
+  logoUrl: string;
 }
 
 export type InWorksProps = Array<InWork>;
+
+export interface InWorksColProps {
+  description: string;
+  name: string;
+  worksCount: number;
+}

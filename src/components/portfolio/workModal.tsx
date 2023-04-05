@@ -110,6 +110,7 @@ const WorkModalBlock = styled.div`
     .work_con {
       flex: 1;
       overflow-y: auto;
+      padding-bottom: 1rem;
       img {
         max-width: 100%;
       }
