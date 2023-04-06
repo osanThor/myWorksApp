@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { media } from '../../../styles/theme';
-import { PLogo } from '../../assets/images';
 import ImageBox from '../common/imageBox';
 import colors from '../../assets/colors';
 import { InWork, InWorksProps } from '../../interface/in_work';
+import { ClipLoader } from 'react-spinners';
+import { useThemeContext } from '../../contexts/theme.context';
 
 interface ProjectProps {
   pj: InWork;
@@ -15,12 +16,29 @@ const PortfolioList = ({
   children,
   subTitle,
   onClick,
+  loading,
 }: {
   works: InWorksProps;
   children?: React.ReactNode;
   subTitle?: React.ReactNode;
   onClick: (work: InWork) => void;
+  loading: boolean;
 }) => {
+  const themeName = useThemeContext();
+  if (loading) {
+    return (
+      <PortfolioListBlock>
+        {subTitle}
+        <div className="loading_con">
+          <ClipLoader
+            color={themeName === 'dark' ? colors.red[1] : colors.blue[1]}
+            loading={loading}
+            size={50}
+          />
+        </div>
+      </PortfolioListBlock>
+    );
+  }
   return (
     <PortfolioListBlock>
       {subTitle}
@@ -57,6 +75,13 @@ const PortfolioListBlock = styled.div`
   padding: 2rem;
   position: relative;
   flex: 1;
+  .loading_con {
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .project_list {
     width: 100%;
     display: flex;

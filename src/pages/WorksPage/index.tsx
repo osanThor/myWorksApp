@@ -11,19 +11,35 @@ import { InWork } from '../../interface/in_work';
 interface Props {}
 
 const WorksPage: NextPage<Props> = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [works, setWorks] = useState([]);
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [mainLoading, setMainLoading] = useState<boolean>(false);
+  const [subLoading, setSubLoading] = useState<boolean>(false);
+  const [mainworks, setMainWorks] = useState([]);
+  const [subworks, setSubWorks] = useState([]);
   const [work, setWork] = useState<InWork | null>(null);
   const getMainList = async () => {
     try {
+      setMainLoading(true);
       const res = await axios.get('/api/work.getList?category=mainWorks');
-      setWorks(res.data);
+      setMainWorks(res.data);
+      setMainLoading(false);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  const getSubList = async () => {
+    try {
+      setSubLoading(true);
+      const res = await axios.get('/api/work.getList?category=subWorks');
+      setSubWorks(res.data);
+      setSubLoading(false);
     } catch (err) {
       console.error(err);
     }
   };
   useEffect(() => {
     getMainList();
+    getSubList();
   }, []);
   const handleClickWork = (work: InWork) => {
     setModalOpen(true);
@@ -38,9 +54,16 @@ const WorksPage: NextPage<Props> = () => {
       <Section>
         <Title title={'WORKS'} mt={2} />
         <PortfolioList
-          works={works}
+          works={mainworks}
           subTitle={<SubTitle title="MAIN WORKS" />}
           onClick={handleClickWork}
+          loading={mainLoading}
+        />
+        <PortfolioList
+          works={subworks}
+          subTitle={<SubTitle title="SUB WORKS" />}
+          onClick={handleClickWork}
+          loading={subLoading}
         />
       </Section>
       {modalOpen && <WorkModal close={handleClose} work={work} />}

@@ -34,11 +34,6 @@ const WorkModal = ({
                     서비스 소개: <span>{work.description}</span>
                   </div>
                 )}
-                {work.period && (
-                  <div className="work_con_row">
-                    작업기간: <span>{work.period}</span>
-                  </div>
-                )}
                 {work.skills && (
                   <div className="work_con_row">
                     사용기술: <span>{work.skills}</span>

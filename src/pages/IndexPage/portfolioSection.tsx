@@ -10,13 +10,16 @@ import { InWork } from '../../interface/in_work';
 
 const PortfolioSection = () => {
   const [works, setWorks] = useState([]);
+  const [loading, setLoading] = useState<boolean>(false);
   const [workOpen, setWorkOpen] = useState<boolean>(false);
   const [work, setWork] = useState<InWork | null>(null);
   const router = useRouter();
   const getMainList = async () => {
     try {
+      setLoading(true);
       const res = await axios.get('/api/work.getMain');
       setWorks(res.data);
+      setLoading(false);
     } catch (err) {
       console.error(err);
     }
@@ -37,7 +40,11 @@ const PortfolioSection = () => {
     <>
       <Section>
         <Title title={'PORTFOLIO'} />
-        <PortfolioList works={works} onClick={handleClickWork}>
+        <PortfolioList
+          works={works}
+          onClick={handleClickWork}
+          loading={loading}
+        >
           <div className="btn_area">
             <Button blue onClick={() => router.push('/works')}>
               더보기
