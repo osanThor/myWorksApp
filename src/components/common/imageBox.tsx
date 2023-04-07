@@ -20,7 +20,7 @@ const ImageBox = ({ src, alt, isLogo }: ImageBoxProps) => {
   const [loading, setLoading] = useState<boolean>(true);
   const themeName = useThemeContext();
   return (
-    <ImageBoxBlock>
+    <ImageBoxBlock className="image_box">
       <Img
         loader={ImageLoader}
         src={src ? src : ''}

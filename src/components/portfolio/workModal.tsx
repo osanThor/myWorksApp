@@ -104,6 +104,9 @@ const WorkModalBlock = styled.div`
       flex: 1;
       overflow-y: auto;
       padding-bottom: 1rem;
+      .image_box {
+        min-height: 100px;
+      }
       img {
         max-width: 100%;
       }
