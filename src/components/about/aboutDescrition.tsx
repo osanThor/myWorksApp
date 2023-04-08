@@ -31,6 +31,7 @@ const AboutDescritionBlock = styled.div`
   word-break: keep-all;
 
   span {
+    margin-left: 0.4rem;
     &.bold {
       font-weight: 600;
     }
