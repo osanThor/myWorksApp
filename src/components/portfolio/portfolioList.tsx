@@ -144,6 +144,9 @@ const PortfolioListBlock = styled.div`
           line-height: 2.25em;
         }
       }
+      .image_box {
+        max-width: 200px;
+      }
       img {
         max-width: calc(100% - 36px);
         transition: all 0.2s;
