@@ -1,23 +1,14 @@
-import React, { useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
-import Image from 'next/image';
 import { Profile } from '../../assets/images';
 import colors from '../../assets/colors';
 import { media } from '../../../styles/theme';
+import ImageBox from '../common/imageBox';
 
 const AboutMeImage = () => {
-  const loadingRef = useRef<HTMLDivElement>(null);
   return (
     <AboutMeImageBlock>
       <div className="image_box">
-        <Image
-          src={Profile[0]}
-          alt="profile"
-          width={470}
-          height={650}
-          onLoadingComplete={() => loadingRef.current?.remove()}
-        />
-        <div className="loading" ref={loadingRef} />
+        <ImageBox src={Profile[0]} alt="profile" />
       </div>
     </AboutMeImageBlock>
   );
@@ -101,13 +92,6 @@ const AboutMeImageBlock = styled.div`
   ${media.tablet} {
     width: 100%;
     margin: 2rem 0;
-    img {
-    }
-  }
-  ${media.custom(460)} {
-    img {
-      height: 400px;
-    }
   }
 `;
 
