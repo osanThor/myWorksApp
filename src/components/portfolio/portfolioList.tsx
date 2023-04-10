@@ -39,6 +39,9 @@ const PortfolioList = ({
       </PortfolioListBlock>
     );
   }
+  if (!works || works.length <= 0) {
+    return <p>데이터를 가져오는데 실패했습니다.</p>;
+  }
   return (
     <PortfolioListBlock>
       {subTitle}
