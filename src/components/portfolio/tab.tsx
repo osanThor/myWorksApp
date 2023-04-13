@@ -1,6 +1,10 @@
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
+import { media } from '../../../styles/theme';
 
 const Tab = () => {
+  const router = useRouter();
+  console.log(router.pathname);
   return (
     <TabBlock>
       <TabItem className="active">
@@ -28,7 +32,6 @@ const TabItem = styled.div`
   padding: 1rem 2rem;
   cursor: pointer;
   border-radius: 5px 5px 0 0;
-  overflow: hidden;
   transition: all 0.2s;
   color: ${({ theme }) => theme.mode.mTxtColor};
   position: relative;
@@ -42,18 +45,28 @@ const TabItem = styled.div`
   }
   &::after {
     content: '';
-    width: 100%;
+    width: 99%;
     height: 0;
-    background-color: ${({ theme }) => theme.mode.mainColor};
     position: absolute;
     left: 0;
     bottom: 0;
     transition: all 0.5s;
+    border-radius: 5px 5px 0 0;
+    opacity: 0;
+    visibility: hidden;
+    border: 1px solid ${({ theme }) => theme.mode.mainColor};
     z-index: 8;
+    left: 50%;
+    transform: translateX(-50%);
   }
   &:hover {
+    span {
+      color: ${({ theme }) => theme.mode.mainColor};
+    }
     &::after {
-      height: 100%;
+      height: 99%;
+      opacity: 1;
+      visibility: visible;
     }
   }
 
@@ -61,11 +74,19 @@ const TabItem = styled.div`
     border-top: 1px solid ${({ theme }) => theme.mode.mainColor};
     border-left: 1px solid ${({ theme }) => theme.mode.mainColor};
     border-right: 1px solid ${({ theme }) => theme.mode.mainColor};
+    background-color: ${({ theme }) => theme.mode.mainColor};
     border-bottom: none;
-    color: ${({ theme }) => theme.mode.mainColor};
+    color: white;
     &:hover {
-      color: white;
+      span {
+        color: white;
+      }
     }
+  }
+
+  ${media.mobile} {
+    min-width: auto;
+    width: 50%;
   }
 `;
 
