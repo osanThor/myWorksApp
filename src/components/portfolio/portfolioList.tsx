@@ -25,22 +25,16 @@ const PortfolioList = ({
   loading: boolean;
 }) => {
   const themeName = useThemeContext();
-  if (loading) {
+
+  if (!works || works.length <= 0) {
     return (
       <PortfolioListBlock>
         {subTitle}
-        <div className="loading_con">
-          <ClipLoader
-            color={themeName === 'dark' ? colors.red[1] : colors.blue[1]}
-            loading={loading}
-            size={50}
-          />
+        <div className="container">
+          <p>데이터를 가져오는데 실패했습니다.</p>
         </div>
       </PortfolioListBlock>
     );
-  }
-  if (!works || works.length <= 0) {
-    return <p>데이터를 가져오는데 실패했습니다.</p>;
   }
   return (
     <PortfolioListBlock>
@@ -50,6 +44,15 @@ const PortfolioList = ({
           <ProjectItem key={pj?.projectLogo} pj={pj} onClick={onClick} />
         ))}
       </div>
+      {loading && (
+        <div className="container">
+          <ClipLoader
+            color={themeName === 'dark' ? colors.red[1] : colors.blue[1]}
+            loading={loading}
+            size={50}
+          />
+        </div>
+      )}
       {children}
     </PortfolioListBlock>
   );
@@ -78,7 +81,7 @@ const PortfolioListBlock = styled.div`
   padding: 2rem;
   position: relative;
   flex: 1;
-  .loading_con {
+  .container {
     width: 100%;
     min-height: 200px;
     display: flex;

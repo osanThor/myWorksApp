@@ -6,8 +6,8 @@ import colors from '../../assets/colors';
 import { media } from '../../../styles/theme';
 
 interface PropsType {
-  fullWidth: string;
-  blue: boolean;
+  fullWidth?: boolean;
+  blue?: boolean;
 }
 
 const Button = (props: any) => {

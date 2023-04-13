@@ -1,3 +1,4 @@
+import CustomServerError from '../controllers/error/custom_server_error';
 import { InWork, InWorksColProps } from '../interface/in_work';
 import FirebaseAdmin from './firebase_admin';
 
@@ -126,14 +127,35 @@ const getList = async ({
     if (!worksRef) {
       return false;
     }
-    const workCol = worksRef.collection(docName).orderBy('projectLogo', 'desc');
+    const worksDoc = await transaction.get(worksRef);
+    if (worksDoc.exists === false) {
+      throw new CustomServerError({
+        statusCode: 400,
+        message: '잘못된 요청입니다.',
+      });
+    }
+    const worksDate = worksDoc.data() as InWorksColProps;
+    const { worksCount = 0 } = worksDate;
+    const totalElements = worksCount !== 0 ? worksCount - 1 : 0;
+    const remains = totalElements % length;
+    const totalPages =
+      (totalElements - remains) / length + (remains > 0 ? 1 : 0);
+    const startAt = totalElements - (page - 1) * length;
+    if (startAt < 0) {
+      return { totalElements, totalPages: 0, page, length, works: [] };
+    }
+    const workCol = worksRef
+      .collection(docName)
+      .orderBy('projectLogo', 'desc')
+      .startAt(startAt)
+      .limit(length);
     const workColDoc = await transaction.get(workCol);
     const data = workColDoc.docs.map((mv) => {
       const docData = mv.data();
       const returnData = { ...docData };
       return returnData;
     });
-    return data;
+    return { totalElements, totalPages, page, length, works: data };
   });
   return listData;
 };
