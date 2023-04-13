@@ -1,16 +1,25 @@
-import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { media } from '../../../styles/theme';
 
-const Tab = () => {
-  const router = useRouter();
-  console.log(router.pathname);
+const Tab = ({
+  active,
+  onClick,
+}: {
+  active: string;
+  onClick: (s: string) => void;
+}) => {
   return (
     <TabBlock>
-      <TabItem className="active">
+      <TabItem
+        className={active === 'main' ? 'active' : ''}
+        onClick={() => onClick('main')}
+      >
         <span>MAIN</span>
       </TabItem>
-      <TabItem>
+      <TabItem
+        className={active === 'sub' ? 'active' : ''}
+        onClick={() => onClick('sub')}
+      >
         <span>SUB</span>
       </TabItem>
     </TabBlock>
@@ -41,7 +50,7 @@ const TabItem = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 9;
-    transition: all 0.5s;
+    transition: all 0.3s;
   }
   &::after {
     content: '';
@@ -55,6 +64,7 @@ const TabItem = styled.div`
     opacity: 0;
     visibility: hidden;
     border: 1px solid ${({ theme }) => theme.mode.mainColor};
+    border-bottom: none;
     z-index: 8;
     left: 50%;
     transform: translateX(-50%);

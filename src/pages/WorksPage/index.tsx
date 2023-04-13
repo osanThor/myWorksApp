@@ -50,23 +50,31 @@ const WorksPage: NextPage<Props> = () => {
     setModalOpen(false);
     setWork(null);
   };
+
+  const [active, setActive] = useState<string>('main');
+  const handleClickActive = (cate: string) => {
+    setActive(cate);
+  };
   return (
     <>
       <Section>
         <Title title={'WORKS'} mt={2} />
-        <Tab />
-        <PortfolioList
-          works={mainworks}
-          subTitle={<SubTitle title="MAIN WORKS" />}
-          onClick={handleClickWork}
-          loading={mainLoading}
-        />
-        <PortfolioList
-          works={subworks}
-          subTitle={<SubTitle title="SUB WORKS" />}
-          onClick={handleClickWork}
-          loading={subLoading}
-        />
+        <Tab active={active} onClick={handleClickActive} />
+        {active === 'main' ? (
+          <PortfolioList
+            works={mainworks}
+            subTitle={<SubTitle title="MAIN WORKS" />}
+            onClick={handleClickWork}
+            loading={mainLoading}
+          />
+        ) : (
+          <PortfolioList
+            works={subworks}
+            subTitle={<SubTitle title="SUB WORKS" />}
+            onClick={handleClickWork}
+            loading={subLoading}
+          />
+        )}
       </Section>
       {modalOpen && <WorkModal close={handleClose} work={work} />}
     </>
