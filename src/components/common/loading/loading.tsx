@@ -78,10 +78,9 @@ const LoadingBlock = styled.div`
       width: 20px;
       height: 36px;
       opacity: 0;
-      /* font-family: Helvetica, Arial, sans-serif; */
+      color: ${({ theme }) => theme.mode.mainColor};
       animation: ${Move} 2s linear infinite;
       transform: rotate(180deg);
-      color: ${({ theme }) => theme.mode.mainColor};
       &:nth-child(2) {
         animation-delay: 0.2s;
       }
