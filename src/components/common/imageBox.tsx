@@ -8,15 +8,14 @@ import { useThemeContext } from '../../contexts/theme.context';
 interface ImageBoxProps {
   src: string | StaticImageData;
   alt: string;
-  isLogo?: boolean;
+  $islogo?: boolean;
 }
 const ImageLoader = ({ src }: { src: string }) => {
   const imageSrc = `${src}`;
   return imageSrc;
 };
 
-const ImageBox = ({ src, alt, isLogo }: ImageBoxProps) => {
-  const loadingRef = useRef<HTMLDivElement>(null);
+const ImageBox = ({ src, alt, ...props }: ImageBoxProps) => {
   const [loading, setLoading] = useState<boolean>(true);
   const themeName = useThemeContext();
   return (
@@ -26,14 +25,13 @@ const ImageBox = ({ src, alt, isLogo }: ImageBoxProps) => {
         src={src ? src : ''}
         alt={alt}
         layout="fill"
-        isLogo={isLogo}
         onLoadingComplete={() => setLoading(false)}
+        {...props}
       />
       <ClipLoader
         color={themeName === 'dark' ? colors.red[1] : colors.blue[1]}
         loading={loading}
         size={50}
-        ref={loadingRef}
       />
     </ImageBoxBlock>
   );
@@ -44,7 +42,7 @@ const Img = styled(Image)`
   height: auto !important;
   position: relative !important;
   ${(props: ImageBoxProps) =>
-    props.isLogo &&
+    props.$islogo &&
     css`
       max-width: 150px;
     `}

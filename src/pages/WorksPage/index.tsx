@@ -25,7 +25,7 @@ const WorksPage: NextPage<Props> = () => {
   const [subWorks, setSubWorks] = useState<InWorksProps>([]);
   const [work, setWork] = useState<InWork | null>(null);
   const mainWorksQueryKey = ['mainworks', mainPage];
-  const { isLoading } = useQuery(
+  const getMain = useQuery(
     mainWorksQueryKey,
     async () =>
       await axios.get<{
@@ -50,7 +50,7 @@ const WorksPage: NextPage<Props> = () => {
   );
 
   const subWorksQueryKey = ['subWorks', subPage];
-  useQuery(
+  const getSub = useQuery(
     subWorksQueryKey,
     async () =>
       await axios.get<{
@@ -73,6 +73,19 @@ const WorksPage: NextPage<Props> = () => {
       },
     },
   );
+
+  useEffect(() => {
+    if (getMain.isLoading) {
+      setMainLoading(true);
+    } else {
+      setMainLoading(false);
+    }
+    if (getSub.isLoading) {
+      setSubLoading(true);
+    } else {
+      setSubLoading(false);
+    }
+  }, [getMain, getSub]);
 
   const handleClickWork = (work: InWork) => {
     setModalOpen(true);
