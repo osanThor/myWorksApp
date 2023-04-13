@@ -5,6 +5,7 @@ import Section from '../../components/common/section';
 import SubTitle from '../../components/common/subTitle';
 import Title from '../../components/common/title';
 import PortfolioList from '../../components/portfolio/portfolioList';
+import Tab from '../../components/portfolio/tab';
 import WorkModal from '../../components/portfolio/workModal';
 import { InWork } from '../../interface/in_work';
 
@@ -53,6 +54,7 @@ const WorksPage: NextPage<Props> = () => {
     <>
       <Section>
         <Title title={'WORKS'} mt={2} />
+        <Tab />
         <PortfolioList
           works={mainworks}
           subTitle={<SubTitle title="MAIN WORKS" />}
