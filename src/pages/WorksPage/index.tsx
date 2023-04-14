@@ -10,6 +10,9 @@ import WorkModal from '../../components/portfolio/workModal';
 import { InWork, InWorksProps } from '../../interface/in_work';
 import { useQuery } from 'react-query';
 import Button from '../../components/common/button';
+import { ClipLoader } from 'react-spinners';
+import colors from '../../assets/colors';
+import { useThemeContext } from '../../contexts/theme.context';
 
 interface Props {}
 
@@ -25,7 +28,15 @@ const WorksPage: NextPage<Props> = () => {
   const [subWorks, setSubWorks] = useState<InWorksProps>([]);
   const [work, setWork] = useState<InWork | null>(null);
   const mainWorksQueryKey = ['mainworks', mainPage];
-  const getMain = useQuery(
+
+  useEffect(() => {
+    setMainLoading(true);
+  }, [mainPage]);
+  useEffect(() => {
+    setSubLoading(true);
+  }, [subPage]);
+
+  useQuery(
     mainWorksQueryKey,
     async () =>
       await axios.get<{
@@ -42,15 +53,17 @@ const WorksPage: NextPage<Props> = () => {
         setMainTotalPage(data.data.totalPages);
         if (mainPage === 1) {
           setMainWorks([...data.data.works]);
+          setMainLoading(false);
           return;
         }
         setMainWorks((prev) => [...prev, ...data.data.works]);
+        setMainLoading(false);
       },
     },
   );
 
   const subWorksQueryKey = ['subWorks', subPage];
-  const getSub = useQuery(
+  useQuery(
     subWorksQueryKey,
     async () =>
       await axios.get<{
@@ -67,25 +80,14 @@ const WorksPage: NextPage<Props> = () => {
         setSubTotalPage(data.data.totalPages);
         if (mainPage === 1) {
           setSubWorks([...data.data.works]);
+          setSubLoading(false);
           return;
         }
         setSubWorks((prev) => [...prev, ...data.data.works]);
+        setSubLoading(false);
       },
     },
   );
-
-  useEffect(() => {
-    if (getMain.isLoading) {
-      setMainLoading(true);
-    } else {
-      setMainLoading(false);
-    }
-    if (getSub.isLoading) {
-      setSubLoading(true);
-    } else {
-      setSubLoading(false);
-    }
-  }, [getMain, getSub]);
 
   const handleClickWork = (work: InWork) => {
     setModalOpen(true);
@@ -100,6 +102,9 @@ const WorksPage: NextPage<Props> = () => {
   const handleClickActive = (cate: string) => {
     setActive(cate);
   };
+
+  const themeName = useThemeContext();
+
   return (
     <>
       <Section>
@@ -111,7 +116,17 @@ const WorksPage: NextPage<Props> = () => {
             subTitle={<SubTitle title="MAIN WORKS" />}
             onClick={handleClickWork}
             loading={mainLoading}
+            page={mainPage}
           >
+            {mainPage !== 1 && mainLoading && (
+              <div className="container">
+                <ClipLoader
+                  color={themeName === 'dark' ? colors.red[1] : colors.blue[1]}
+                  loading={mainLoading}
+                  size={50}
+                />
+              </div>
+            )}
             {mainTotalPage > mainPage && (
               <div className="btn_area">
                 <Button
@@ -130,7 +145,17 @@ const WorksPage: NextPage<Props> = () => {
             subTitle={<SubTitle title="SUB WORKS" />}
             onClick={handleClickWork}
             loading={subLoading}
+            page={subPage}
           >
+            {subPage !== 1 && subLoading && (
+              <div className="container">
+                <ClipLoader
+                  color={themeName === 'dark' ? colors.red[1] : colors.blue[1]}
+                  loading={subLoading}
+                  size={50}
+                />
+              </div>
+            )}
             {subTotalPage > subPage && (
               <div className="btn_area">
                 <Button

@@ -44,6 +44,7 @@ const PortfolioSection = () => {
           works={works}
           onClick={handleClickWork}
           loading={loading}
+          page={1}
         >
           <div className="btn_area">
             <Button blue onClick={() => router.push('/works')}>

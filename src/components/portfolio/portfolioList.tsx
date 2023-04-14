@@ -3,8 +3,10 @@ import { media } from '../../../styles/theme';
 import ImageBox from '../common/imageBox';
 import colors from '../../assets/colors';
 import { InWork, InWorksProps } from '../../interface/in_work';
-import { ClipLoader } from 'react-spinners';
 import { useThemeContext } from '../../contexts/theme.context';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+import uuid from 'react-uuid';
 
 interface ProjectProps {
   pj: InWork;
@@ -17,14 +19,27 @@ const PortfolioList = ({
   subTitle,
   onClick,
   loading,
+  page,
 }: {
   works: InWorksProps;
   children?: React.ReactNode;
   subTitle?: React.ReactNode;
   onClick: (work: InWork) => void;
   loading: boolean;
+  page: number;
 }) => {
-  const themeName = useThemeContext();
+  if (page === 1 && loading) {
+    return (
+      <PortfolioListBlock>
+        {subTitle}
+        <div className="project_list">
+          {new Array(8).map(() => (
+            <SkeletonItem key={uuid()} />
+          ))}
+        </div>
+      </PortfolioListBlock>
+    );
+  }
 
   if (!works || works.length <= 0) {
     return (
@@ -44,15 +59,6 @@ const PortfolioList = ({
           <ProjectItem key={pj?.projectLogo} pj={pj} onClick={onClick} />
         ))}
       </div>
-      {loading && (
-        <div className="container">
-          <ClipLoader
-            color={themeName === 'dark' ? colors.red[1] : colors.blue[1]}
-            loading={loading}
-            size={50}
-          />
-        </div>
-      )}
       {children}
     </PortfolioListBlock>
   );
@@ -71,6 +77,20 @@ const ProjectItem = ({ pj, onClick }: ProjectProps) => {
         <span className="project_name">{pj?.projectName}</span>
       </div>
       <ImageBox src={pj.logoUrl} alt={pj?.projectName} $islogo />
+    </div>
+  );
+};
+
+const SkeletonItem = () => {
+  const themeName = useThemeContext();
+  return (
+    <div className="item skeleton">
+      <SkeletonTheme
+        baseColor={themeName === 'dark' ? colors.dark[3] : colors.gray[2]}
+        highlightColor={themeName === 'dark' ? colors.dark[2] : colors.white}
+      >
+        <Skeleton borderRadius={0} />
+      </SkeletonTheme>
     </div>
   );
 };
@@ -111,6 +131,13 @@ const PortfolioListBlock = styled.div`
         background-color: black;
         transition: all 0.2s;
         opacity: 0;
+      }
+      &.skeleton {
+        cursor: inherit;
+        span {
+          width: 100%;
+          height: 100%;
+        }
       }
       .hover_effct {
         transition: all 0.5s ease-in-out;
