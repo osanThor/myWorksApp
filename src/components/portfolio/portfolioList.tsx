@@ -28,12 +28,13 @@ const PortfolioList = ({
   loading: boolean;
   page: number;
 }) => {
+  const newArr = [1, 2, 3, 4, 5, 6, 7, 8];
   if (page === 1 && loading) {
     return (
       <PortfolioListBlock>
         {subTitle}
         <div className="project_list">
-          {new Array(8).map(() => (
+          {newArr.map(() => (
             <SkeletonItem key={uuid()} />
           ))}
         </div>
@@ -134,6 +135,7 @@ const PortfolioListBlock = styled.div`
       }
       &.skeleton {
         cursor: inherit;
+        border: 1px solid ${({ theme }) => theme.mode.bgColor2};
         span {
           width: 100%;
           height: 100%;
