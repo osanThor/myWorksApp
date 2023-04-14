@@ -3,10 +3,10 @@ import { media } from '../../../styles/theme';
 import ImageBox from '../common/imageBox';
 import colors from '../../assets/colors';
 import { InWork, InWorksProps } from '../../interface/in_work';
-import { ClipLoader } from 'react-spinners';
 import { useThemeContext } from '../../contexts/theme.context';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import uuid from 'react-uuid';
 
 interface ProjectProps {
   pj: InWork;
@@ -19,14 +19,27 @@ const PortfolioList = ({
   subTitle,
   onClick,
   loading,
+  page,
 }: {
   works: InWorksProps;
   children?: React.ReactNode;
   subTitle?: React.ReactNode;
   onClick: (work: InWork) => void;
   loading: boolean;
+  page: number;
 }) => {
-  const themeName = useThemeContext();
+  if (page === 1 && loading) {
+    return (
+      <PortfolioListBlock>
+        {subTitle}
+        <div className="project_list">
+          {new Array(8).map(() => (
+            <SkeletonItem key={uuid()} />
+          ))}
+        </div>
+      </PortfolioListBlock>
+    );
+  }
 
   if (!works || works.length <= 0) {
     return (
@@ -46,15 +59,6 @@ const PortfolioList = ({
           <ProjectItem key={pj?.projectLogo} pj={pj} onClick={onClick} />
         ))}
       </div>
-      {loading && (
-        <div className="container">
-          <ClipLoader
-            color={themeName === 'dark' ? colors.red[1] : colors.blue[1]}
-            loading={loading}
-            size={50}
-          />
-        </div>
-      )}
       {children}
     </PortfolioListBlock>
   );
