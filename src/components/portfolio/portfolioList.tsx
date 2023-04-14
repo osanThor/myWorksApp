@@ -5,6 +5,8 @@ import colors from '../../assets/colors';
 import { InWork, InWorksProps } from '../../interface/in_work';
 import { ClipLoader } from 'react-spinners';
 import { useThemeContext } from '../../contexts/theme.context';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 interface ProjectProps {
   pj: InWork;
@@ -75,6 +77,20 @@ const ProjectItem = ({ pj, onClick }: ProjectProps) => {
   );
 };
 
+const SkeletonItem = () => {
+  const themeName = useThemeContext();
+  return (
+    <div className="item skeleton">
+      <SkeletonTheme
+        baseColor={themeName === 'dark' ? colors.dark[3] : colors.gray[2]}
+        highlightColor={themeName === 'dark' ? colors.dark[2] : colors.white}
+      >
+        <Skeleton borderRadius={0} />
+      </SkeletonTheme>
+    </div>
+  );
+};
+
 const PortfolioListBlock = styled.div`
   width: 100%;
   margin: 2rem 0;
@@ -111,6 +127,13 @@ const PortfolioListBlock = styled.div`
         background-color: black;
         transition: all 0.2s;
         opacity: 0;
+      }
+      &.skeleton {
+        cursor: inherit;
+        span {
+          width: 100%;
+          height: 100%;
+        }
       }
       .hover_effct {
         transition: all 0.5s ease-in-out;
