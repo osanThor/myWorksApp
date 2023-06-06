@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { media } from '../../../styles/theme';
+import Lottie from 'lottie-react';
+import developerAnimation from '../../data/lottie/developer.json';
 
 const ContactTemplate = ({
   children,
@@ -11,6 +13,7 @@ const ContactTemplate = ({
 }) => {
   return (
     <ContactTemplateBlock>
+      <Lottie animationData={developerAnimation} />
       <form onSubmit={submit}>{children}</form>
     </ContactTemplateBlock>
   );
@@ -20,10 +23,13 @@ const ContactTemplateBlock = styled.div`
   width: 100%;
   flex: 1;
   display: flex;
-  flex-direction: column;
   margin-top: 1rem;
   position: relative;
   padding: 3rem 1rem;
+  gap: 1rem;
+  form {
+    flex-grow: 1;
+  }
   &::before {
     content: '<form>';
     top: 0;
@@ -59,6 +65,7 @@ const ContactTemplateBlock = styled.div`
     }
   }
   ${media.tablet} {
+    flex-direction: column;
     .btns_wrap {
       flex-direction: column;
       padding: 0;
